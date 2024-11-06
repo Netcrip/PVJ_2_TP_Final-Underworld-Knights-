@@ -28,7 +28,7 @@ namespace Retro.ThirdPersonCharacter
             _movementInput.Set(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
             _jumpInput = Input.GetButton("Jump");
             _playerRotate= Input.GetMouseButton(1);
-            _block = Input.GetKey(KeyCode.LeftShift);
+            _block = Input.GetKey(KeyCode.F);
    
         }
     }

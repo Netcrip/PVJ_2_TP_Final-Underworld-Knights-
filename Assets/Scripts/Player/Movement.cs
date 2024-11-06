@@ -22,8 +22,9 @@ namespace Retro.ThirdPersonCharacter
         private float DecelerationOnStop = 0.05f;  // Ajuste de desaceleración gradual
 
         [SerializeField]public float rotationSpeed=5f; // Velocidad de rotación del personaje
-        [SerializeField] private Quaternion currentRotation;
+       //[SerializeField] private Quaternion currentRotation;
   
+        [SerializeField] private Vector3 currentRotation;
 
 
 
@@ -33,10 +34,10 @@ namespace Retro.ThirdPersonCharacter
             _playerInput = GetComponent<PlayerInput>();
             _combat = GetComponent<Combat>();
             _characterController = GetComponent<CharacterController>();
-             currentRotation= transform.rotation;
+            currentRotation= _characterController.transform.eulerAngles;
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             if (_animator == null) return;
 
@@ -83,8 +84,8 @@ namespace Retro.ThirdPersonCharacter
                     
             }
 
-            moveDirection.y -= gravity * Time.fixedDeltaTime;
-            _characterController.Move(moveDirection * Time.fixedDeltaTime);
+            moveDirection.y -= gravity * Time.deltaTime;
+            _characterController.Move(moveDirection * Time.deltaTime);
 
             _animator.SetFloat("InputX", x);
             _animator.SetFloat("InputY", y);
@@ -95,7 +96,7 @@ namespace Retro.ThirdPersonCharacter
         {
 
 
-            if(_playerInput.PlayerRotate)
+            /*if(_playerInput.PlayerRotate)
             {
                 
                  float mouseX = Input.GetAxis("Mouse X");
@@ -111,7 +112,23 @@ namespace Retro.ThirdPersonCharacter
             }
          
          _characterController.transform.rotation = currentRotation;
-   
+   */
+        if(_playerInput.PlayerRotate)
+            {
+                
+                 float mouseX = Input.GetAxis("Mouse X");
+
+                if(mouseX != 0f)
+                {
+                    //_characterController.transform.Rotate(0, mouseX * rotationSpeed, 0);
+                    currentRotation = new Vector3 (0,currentRotation.y+mouseX,0);
+                    //guardo
+                }
+                
+           
+            }
+         
+         _characterController.transform.eulerAngles = currentRotation;
 
         }
 
