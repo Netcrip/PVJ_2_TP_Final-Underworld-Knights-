@@ -468,7 +468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.814575, y: -262.83008}
+  m_AnchoredPosition: {x: -8.814697, y: -262.83008}
   m_SizeDelta: {x: -1636.4529, y: -824.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &125353994
@@ -1450,7 +1450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -33, y: -462.0309}
+  m_AnchoredPosition: {x: -33, y: -462.03094}
   m_SizeDelta: {x: -1508.2189, y: -963.3239}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &641330243
@@ -1637,7 +1637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: 3
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295

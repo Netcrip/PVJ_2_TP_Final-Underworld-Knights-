@@ -5,25 +5,26 @@ using UnityEngine;
 public class AvatarSet : MonoBehaviour
 {
     [SerializeField] private GameObject KnightA,KnightB,KnightC,KnightD,KnightE;
+
+
     void Start()
     {
         switch (GameManager.Instance.avatarSelection){
             case "KnightA":              
-                KnightA.SetActive(true);
+                KnightA.SetActive(true);        
             break;
             case "KnightB":            
                 KnightB.SetActive(true);
-            break;
-            case "KnightC":
-              
+                break;
+            case "KnightC":           
                 KnightC.SetActive(true);
-            break;
+                break;
             case "KnightD":             
-                KnightD.SetActive(true);
-            break;
+                KnightD.SetActive(true);  
+                break;
             case "KnightE":            
                 KnightE.SetActive(true);
-            break;
+                break;
         }
     }
 

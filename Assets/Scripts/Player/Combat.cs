@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 
-namespace Retro.ThirdPersonCharacter
-{
+
+
     [RequireComponent(typeof(PlayerInput))]
     [RequireComponent(typeof(Animator))]
     public class Combat : MonoBehaviour
@@ -16,6 +16,8 @@ namespace Retro.ThirdPersonCharacter
 
         public bool AttackInProgress {get; private set;} = false;
         public bool CanMove { get; private set;} = true;
+
+        public bool Defence { get; private set; } = false;
 
         private void Start()
         {
@@ -62,6 +64,6 @@ namespace Retro.ThirdPersonCharacter
         {
             _animator.SetBool(defenceBoolName, block);
             CanMove = !block;
+            Defence = block;
         }
     }
-}

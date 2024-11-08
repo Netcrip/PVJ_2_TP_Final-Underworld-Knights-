@@ -1,24 +1,28 @@
 ﻿using UnityEngine;
 
-namespace Retro.ThirdPersonCharacter
-{
+
     [RequireComponent(typeof(PlayerInput))]
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(Combat))]
     [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(PlayerStamina))]
     public class Movement : MonoBehaviour
     {
         private Animator _animator;
         private PlayerInput _playerInput;
         private Combat _combat;
         private CharacterController _characterController;
+        private PlayerStamina _playerStamina;
 
         private Vector2 lastMovementInput;
         private Vector3 moveDirection = Vector3.zero;
 
-        public float gravity = 10;
-        public float jumpSpeed = 4;
-        public float MaxSpeed = 10;
+        [SerializeField] float _gravity = 10;
+        [SerializeField] float _jumpSpeed = 4;
+        [SerializeField] float _maxSpeed = 10;
+        [SerializeField] float _dashStamina = 10;
+        float speed;
+
         private float DecelerationOnStop = 0.05f;  // Ajuste de desaceleración gradual
 
         [SerializeField]public float rotationSpeed=5f; // Velocidad de rotación del personaje
@@ -35,6 +39,9 @@ namespace Retro.ThirdPersonCharacter
             _combat = GetComponent<Combat>();
             _characterController = GetComponent<CharacterController>();
             currentRotation= _characterController.transform.eulerAngles;
+            _playerStamina = GetComponent<PlayerStamina>();
+            speed = _maxSpeed;
+
         }
 
         private void Update()
@@ -51,6 +58,7 @@ namespace Retro.ThirdPersonCharacter
             {
                 if (_combat.CanMove)
                 {
+                    Dash();
                     Move();
                 }
                 
@@ -74,46 +82,34 @@ namespace Retro.ThirdPersonCharacter
             if (grounded)
             {
                 moveDirection = new Vector3(x, 0, y);
-                moveDirection = transform.TransformDirection(moveDirection.normalized)*MaxSpeed;
+                moveDirection = transform.TransformDirection(moveDirection.normalized)*_maxSpeed;
 
                 if (_playerInput.JumpInput)
                 {
-                    moveDirection.y = jumpSpeed;
+                    moveDirection.y = _jumpSpeed;
                     _animator.SetTrigger("Jump");
                 }
                     
             }
 
-            moveDirection.y -= gravity * Time.deltaTime;
+            moveDirection.y -= _gravity * Time.deltaTime;
             _characterController.Move(moveDirection * Time.deltaTime);
 
-            _animator.SetFloat("InputX", x);
+
+            
+            if(_maxSpeed > speed) {
+                _animator.SetFloat("InputY", y*2);
+            }
+            else
             _animator.SetFloat("InputY", y);
+            _animator.SetFloat("InputX", x);
+            
             _animator.SetBool("IsInAir", !grounded);
         }
        
         private void RotateWithMouse()
         {
-
-
-            /*if(_playerInput.PlayerRotate)
-            {
-                
-                 float mouseX = Input.GetAxis("Mouse X");
-
-                if(mouseX != 0f)
-                {
-                    _characterController.transform.Rotate(0, mouseX * rotationSpeed, 0);
-                    //guardo
-                    currentRotation = transform.rotation;
-                }
-                
-           
-            }
-         
-         _characterController.transform.rotation = currentRotation;
-   */
-        if(_playerInput.PlayerRotate)
+            if(_playerInput.PlayerRotate)
             {
                 
                  float mouseX = Input.GetAxis("Mouse X");
@@ -143,5 +139,24 @@ namespace Retro.ThirdPersonCharacter
             _animator.SetFloat("InputY", lastMovementInput.y);
             
         }
+
+        private void Dash()
+        {
+            if(_playerInput.Dash)
+            {
+                if (_playerStamina.StaminaUse(_dashStamina))
+                {
+                    _playerStamina.CanStaminaRegeneration=false;
+                    _maxSpeed = speed * 1.5f;
+                }
+                else
+                    _maxSpeed = speed;
+
+            }
+            else
+            {
+               _maxSpeed = speed;
+               _playerStamina.CanStaminaRegeneration = true;
+            }
+        }
     }
-}
