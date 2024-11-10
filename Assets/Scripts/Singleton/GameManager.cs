@@ -25,4 +25,7 @@ public class GameManager : MonoBehaviour
     public void LoadScene(string scene){
         SceneManager.LoadScene(scene);
     }
+    public void LoadSceneAdition(string scene){
+        SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+        }
 }

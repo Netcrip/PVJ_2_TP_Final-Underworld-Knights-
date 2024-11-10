@@ -23,6 +23,9 @@ public class AvatarSelection : MonoBehaviour
     public void SelectedToGO(){
         GameManager.Instance.LoadScene("LvlTest");
     }
+    public void AddScreen(){
+        GameManager.Instance.LoadSceneAdition("SampleScene");
+    }
     public void ChangeSelect(string selectAvatar){
         switch (selectAvatar){
             case "KnightA":
