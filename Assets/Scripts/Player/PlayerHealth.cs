@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour, IDamagable
 {
     // 
-    float health;
+    [SerializeField]float health;
     [SerializeField] float _maxHealt=100;
     private Combat _combat;
     private PlayerInput _playerInput;
