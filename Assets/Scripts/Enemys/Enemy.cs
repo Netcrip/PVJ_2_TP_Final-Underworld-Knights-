@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,7 +15,7 @@ public class Enemy : MonoBehaviour
     //health
     private float health;
     [SerializeField]private float _maxHealth=300;
-    [SerializeField] private HealtBarManager _healthBar;
+    [SerializeField] private HealthBarManager _healthBar;
     [SerializeField]private bool isAlive;
     
     // Animator
@@ -56,6 +54,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AudioClip _attack2SwordSfx=null;
     [SerializeField] private AudioClip _dieSfx=null;
     private bool isDead = false;
+
+    [SerializeField] BoxCollider _weaponCollider;
 
     //public Action <Boss>onDead;
     private void Awake()
@@ -197,8 +197,9 @@ public class Enemy : MonoBehaviour
             {
                 
                 canMove = false;
-                //_sfx.PlayOneShot(_attackSfx);
-                _anim.SetTrigger("Attack1");
+                _weaponCollider.enabled = true;
+               //_sfx.PlayOneShot(_attackSfx);
+               _anim.SetTrigger("Attack1");
 
                 alreadyAttacked = true;
                 Invoke(nameof(ResetAttack), _timeBetweenAttacks);
@@ -222,6 +223,7 @@ public class Enemy : MonoBehaviour
     private void ResetAttack()
     {
         alreadyAttacked = false;
+        _weaponCollider.enabled = false;
     }
     private void Stop()
     {
@@ -240,6 +242,7 @@ public class Enemy : MonoBehaviour
         PlayerHealth isplayer = other.GetComponent<PlayerHealth>();
         if (isplayer != null)
         {
+            _weaponCollider.enabled = false;
             isplayer.Damage(_damageAttack);
         }
     }
