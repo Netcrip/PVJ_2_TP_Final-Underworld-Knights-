@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealtBarManager : MonoBehaviour
+public class HealthBarManager : MonoBehaviour
 {
     [SerializeField] private Image healthBar;
     private float healt;

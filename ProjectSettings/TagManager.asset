@@ -4,17 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Trap
+  - CanvaStamina
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - InvisibleWalls
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ground
+  - Trow
+  - Enemy
   - 
   - 
   - 

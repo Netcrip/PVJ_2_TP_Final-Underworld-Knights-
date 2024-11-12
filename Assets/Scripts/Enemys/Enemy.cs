@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     //health
     private float health;
     [SerializeField]private float _maxHealth=300;
-    [SerializeField] private HealtBarManager _healthBar;
+    [SerializeField] private HealthBarManager _healthBar;
     [SerializeField]private bool isAlive;
     
     // Animator
@@ -33,7 +33,9 @@ public class Enemy : MonoBehaviour
     private RaycastHit hit;
     [SerializeField] private float _damageAttack;
     [SerializeField] private GameObject _swordShow;
-    private bool trhowRock = false;
+    private bool trhowWeapon = false;
+
+    [SerializeField] LayerMask _layermasck;
 
     //
     [SerializeField] private bool canMove = true;
@@ -53,11 +55,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AudioClip _dieSfx=null;
     private bool isDead = false;
 
+    [SerializeField] BoxCollider _weaponCollider;
+
     //public Action <Boss>onDead;
     private void Awake()
     {
         //player = GameObject.Find("Player").transform;
-        player = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindFirstObjectByType<PlayerHealth>().transform;
         agent = GetComponent<NavMeshAgent>();
         _respawPoint = transform.position;
         health = _maxHealth;
@@ -85,15 +89,15 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (trhowRock)
+        if (trhowWeapon)
         {
-            RockThrower();
-            trhowRock=false;
+            SwordThrower();
+            trhowWeapon=false;
         }
     }
     private void iddle() 
     {
-       // _anim.SetFloat("isMoving", 0f);
+       _anim.SetFloat("isMoving", 0f);
         //_moveSfx.enabled = false; 
     }
     
@@ -101,7 +105,7 @@ public class Enemy : MonoBehaviour
     {
         //_moveSfx.enabled = true;
         agent.SetDestination(_respawPoint);
-        //_anim.SetFloat("isMoving", 0.5f);
+        _anim.SetFloat("isMoving", 0.5f);
     }
 
     private void toggleCanmove()
@@ -113,7 +117,7 @@ public class Enemy : MonoBehaviour
     {
         //_moveSfx.enabled = true;
         agent.SetDestination(player.position);
-        //_anim.SetFloat("isMoving",0.5f);
+        _anim.SetFloat("isMoving",0.5f);
     }
 
     private void LongAttackPlayer()
@@ -122,26 +126,25 @@ public class Enemy : MonoBehaviour
         
         //_moveSfx.enabled = false;
         agent.SetDestination(transform.position);
-        //_anim.SetFloat("isMoving", 0f);
+        _anim.SetFloat("isMoving", 0f);
         transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
-            
-
             Ray ray = new Ray(transform.position, transform.forward);
-            if(Physics.Raycast(ray,out hit, _attackLongRange))
+            Debug.DrawRay(ray.origin,ray.direction*30f);
+            if(Physics.Raycast(ray,out hit, _attackLongRange,_layermasck))
             {
                 canMove = false;
                 //_sfx.PlayOneShot(_attack2SwordSfx);
                 //_sfx.PlayOneShot(_attack2Sfx);
-                //_anim.SetTrigger("longAttack");
+                _anim.SetTrigger("Attack2");
 
-                Invoke(nameof(ShowRock), 0.6f);
-                ///Calculamos la disntacia para la fuerza de la piedra
+                //Invoke(nameof(ShowWeapon), 0.4f);
+                ///Calculamos la disntacia para la fuerza de la espada
                // sfx.PlayOneShot(attack2StoneSfx);
-                Invoke(nameof(RockThrowerCall),1.6f);
-                Invoke(nameof(toggleCanmove), 2f);
+                Invoke(nameof(SwordThrowerCall),0.5f);
+                Invoke(nameof(toggleCanmove), 1f);
                 alreadyAttacked = true;
              Invoke(nameof(ResetAttack), _timeBetweenlongAttacks);
             }
@@ -150,25 +153,25 @@ public class Enemy : MonoBehaviour
         
     }
 
-    //stone 
-    private void ShowRock()
+    // 
+    private void ShowWeapon()
     {
         _swordShow.SetActive(true);
         
     }
-    private void RockThrowerCall()
+    private void SwordThrowerCall()
     {
-        trhowRock = true;
+        trhowWeapon = true;
     }
 
-    private void RockThrower()
+    private void SwordThrower()
     {
-        
-        _swordShow.SetActive(false);
-        Rigidbody rb = Instantiate(_sword, _swordPosition.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * (hit.distance / 1.6f), ForceMode.Impulse);
+        ///_swordShow.SetActive(false);
+        Rigidbody rb = Instantiate(_sword, _swordPosition.position,Quaternion.Euler(0,90,0)).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * (hit.distance / 1.8f), ForceMode.Impulse);
         rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-        rb.AddTorque(UnityEngine.Random.Range(0,500), UnityEngine.Random.Range(0, 500), UnityEngine.Random.Range(0, 500));
+        //rb.AddTorque(UnityEngine.Random.Range(0,500), UnityEngine.Random.Range(0, 500), UnityEngine.Random.Range(0, 500));
+        rb.AddTorque(transform.up*360f);
     }
 
     private void AttackPlayer()
@@ -177,7 +180,7 @@ public class Enemy : MonoBehaviour
         //fijar enemigo 
         //_moveSfx.enabled = false;
         agent.SetDestination(transform.position);
-        //_anim.SetFloat("isMoving", 0f);
+        _anim.SetFloat("isMoving", 0f);
      
         if (!alreadyAttacked)
         {
@@ -186,36 +189,49 @@ public class Enemy : MonoBehaviour
             Quaternion currentRotation = transform.rotation;
             Quaternion finalRotation = Quaternion.Lerp(currentRotation, newRotation, Time.deltaTime * _rotationSpeed);
             transform.rotation = finalRotation;
+            
 
-
-
-
-            RaycastHit hit;
-            Ray ray = new Ray(transform.position, transform.forward);
-            if (Physics.Raycast(ray, out hit, _attackRange))
+            
+            //Ray ray = new Ray(transform.position, transform.forward);
+            if (IsFron())//Physics.Raycast(ray, out hit, _attackRange))
             {
+                
                 canMove = false;
-                //_sfx.PlayOneShot(_attackSfx);
-                //_anim.SetTrigger("shortAttack");
+                _weaponCollider.enabled = true;
+               //_sfx.PlayOneShot(_attackSfx);
+               _anim.SetTrigger("Attack1");
 
                 alreadyAttacked = true;
                 Invoke(nameof(ResetAttack), _timeBetweenAttacks);
-                Invoke(nameof(toggleCanmove), 2f);
+                Invoke(nameof(toggleCanmove), 1f);
             }
 
            
         }
        
     }
+
+    bool IsFron(){
+        Vector3 directionOfPlayer = transform.position-player.transform.position;
+        float angle  = Vector3.Angle(transform.forward,directionOfPlayer);
+        if(Math.Abs(angle)>170 && Math.Abs(angle)<180){
+            return true;
+        }
+        else
+            return false;
+    }
     private void ResetAttack()
     {
         alreadyAttacked = false;
+        _weaponCollider.enabled = false;
     }
     private void Stop()
     {
         stop = true;
         //PlayertUiManager.Instance.onPlayerDead -= Stop;
     }
+
+
     private void DestroyEnemy()
     {
         Destroy(gameObject);
@@ -226,6 +242,7 @@ public class Enemy : MonoBehaviour
         PlayerHealth isplayer = other.GetComponent<PlayerHealth>();
         if (isplayer != null)
         {
+            _weaponCollider.enabled = false;
             isplayer.Damage(_damageAttack);
         }
     }
@@ -240,7 +257,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0 && !isDead)
         {
             //_sfx.PlayOneShot(_dieSfx);
-            //_anim.SetBool("isDead", true);
+            _anim.SetBool("Die", true);
             //onDead?.Invoke(this);
             isDead = true;
             Invoke(nameof(DestroyEnemy), 4f);
