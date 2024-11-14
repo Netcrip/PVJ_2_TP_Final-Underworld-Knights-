@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows.WebCam;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(string scene){
         SceneManager.LoadScene(scene);
+        AudioController.Instance.changeAudioSource(Camera.main.GetComponent<AudioSource>());
     }
     public void LoadSceneAdition(string scene){
         SceneManager.LoadScene(scene, LoadSceneMode.Additive);

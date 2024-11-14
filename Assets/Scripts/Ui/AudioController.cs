@@ -23,6 +23,11 @@ public class AudioController : MonoBehaviour, IVolumeControl, IMuteControl
 
     [SerializeField] private AudioSource backgroundMusicSource;
 
+    public void changeAudioSource(AudioSource newSource)
+    {
+        backgroundMusicSource = newSource;
+    }
+
     private bool _isMuted = false;
     private float _currentVolume = 1.0f;
 

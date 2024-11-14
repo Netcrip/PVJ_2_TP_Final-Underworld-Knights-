@@ -37,7 +37,7 @@ namespace Ui
 
         public void StartGame()
         {
-            SceneManager.LoadScene("Selection"); // Cargar la escena llamada "Selection"
+            SceneManager.LoadScene("Selecction"); // Cargar la escena llamada "Selection"
         }
 
         public void VolverAlMenu()
