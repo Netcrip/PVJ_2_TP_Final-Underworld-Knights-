@@ -5,31 +5,43 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    public float damage = 10f;
-    public float pushForce = 5f;
-    Rigidbody rb;
-
-    void FixUpdate()
+    private CharacterController _characterController;
+    private float pushForce = 50f; // Fuerza inicial del empuje
+    private float pushDecay = 5f; // Velocidad a la que el empuje disminuye
+    private Vector3 _pushDirection; // Dirección del empuje 
+    
+    private void Start()
     {
-        applyForce();
+        _characterController = GameObject.FindWithTag("Player").GetComponent<CharacterController>();
     }
 
-    private void applyForce()
+    private void Update()
     {
-        rb.AddForce(transform.forward * pushForce, ForceMode.Force);
-        rb = null;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        PlayerHealth hl = collision.gameObject.GetComponent<PlayerHealth>();
-        collision.gameObject.GetComponent<Rigidbody>();
-
-        if (hl != null)
+        // Si hay una dirección de empuje, mueve el CharacterController
+        if (_pushDirection.magnitude > 0.1f)
         {
-            hl.Damage(damage);
+            // Mueve el CharacterController en la dirección del empuje
+            _characterController.Move(_pushDirection * Time.deltaTime);
+    
 
-            //rb.AddForce(transform.forward * pushForce, ForceMode.Force);           
+            // Reduce gradualmente el empuje hasta que se detenga
+            _pushDirection = Vector3.Lerp(_pushDirection, Vector3.zero, pushDecay * Time.deltaTime);
         }
     }
+
+    public void ApplyPush(Vector3 impactPoint)
+    {
+        // Calcula la dirección del empuje como el vector desde el punto de impacto hacia el jugador
+        Vector3 direction = transform.position - impactPoint;
+        _pushDirection = -direction.normalized * pushForce;
+    }
+    private void OnCollisionEnter(Collision collision)
+{
+    // Obtén el primer punto de contacto
+    Vector3 impactPoint = collision.contacts[0].point;
+
+    // Llama a ApplyPush para aplicar el empuje
+    ApplyPush(impactPoint);
+}
+
 }
