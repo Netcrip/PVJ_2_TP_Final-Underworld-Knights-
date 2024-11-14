@@ -12,7 +12,13 @@ public class Item : MonoBehaviour
     [SerializeField] private Sprite sprite;
     [SerializeField] private Texture2D thumbnail;
 
+    [TextArea][SerializeField] public string itemDescription;
+
+
     private InventoryManager inventoryManager;
+
+    public string ItemDescription { get => itemDescription; set => itemDescription = value; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +29,11 @@ public class Item : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            inventoryManager.AddItem(itemName, quantity, sprite);
-            Destroy(gameObject);
+            int leftOverItems = inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
+            if (leftOverItems <= 0)
+                Destroy(gameObject);
+            else
+                quantity = leftOverItems;
         }
     }
 }

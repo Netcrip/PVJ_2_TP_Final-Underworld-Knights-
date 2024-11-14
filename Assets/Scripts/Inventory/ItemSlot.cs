@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.AI;
 
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
@@ -14,12 +15,24 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public int quantity;
     public Sprite itemSprite;
     public bool isFull;
+    public string itemDescription;
+    public Sprite emptySprite;
+
+    [SerializeField] private int maxNumberOfItems;
     
     
     // ITEM SLOT
     [SerializeField] private TMP_Text quantityText;
 
     [SerializeField] private Image itemImage;
+
+
+    // ITEM DESCRIPTION SLOT
+    public Image itemDescriptionImage;
+    public TMP_Text ItemDescriptionNameText;
+    public TMP_Text ItemDescriptionText;
+
+    //
 
     public GameObject selectedShader;
     public bool thisItemSelected;
@@ -31,30 +44,57 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
     }
 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite)
+    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
+        //Verificar si ya hay item
+        if (isFull) 
+            return quantity;
+        
+        //UPDATE NOMBRE
         this.itemName = itemName;
-        this.quantity = quantity;
+
+        //UPDATE Imagen
         this.itemSprite = itemSprite;
-        isFull = true;
+        //itemImage.sprite = itemSprite; esto es viejo?
 
-        quantityText.text = quantity.ToString();
-        quantityText.enabled = true;
-        itemImage.sprite = itemSprite;
-    }
+        //UPDATE Descrip
+        this.itemDescription = itemDescription;
 
-    public void UpdateQuantityText()
-    {
-        if (quantity > 1) // Mostrar solo si hay más de una unidad
+        //UPDATE Cantidad
+        this.quantity += quantity;
+        if (this.quantity >= maxNumberOfItems)
         {
-            quantityText.text = quantity.ToString();
+            quantityText.text = maxNumberOfItems.ToString();
             quantityText.enabled = true;
+            isFull = true;
+        
+            int extraItems = this.quantity - maxNumberOfItems;
+            this.quantity = maxNumberOfItems;
+            return extraItems;
+
         }
-        else
-        {
-            quantityText.enabled = false;
-        }
+            
+        //UPDATE CANTIDAD DEL TEXTO
+        quantityText.text = this.quantity.ToString();
+        quantityText.enabled = true;
+        //itemImage.sprite = itemSprite;
+         
+        return 0;
+        
     }
+
+   // public void UpdateQuantityText()
+    //{
+      //  if (quantity > 1) // Mostrar solo si hay más de una unidad
+       // {
+        //    quantityText.text = quantity.ToString();
+         //   quantityText.enabled = true;
+       // }
+       // else
+       // {
+       //     quantityText.enabled = false;
+       // }
+    //}
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -74,6 +114,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         inventoryManager.DeselectAllSlots();
         selectedShader.SetActive(true);
         thisItemSelected = true;
+        ItemDescriptionNameText.text = itemName;
+        ItemDescriptionText.text = itemDescription;
+        itemDescriptionImage.sprite = itemSprite;
+        if (itemDescriptionImage.sprite == null)
+            itemDescriptionImage.sprite = emptySprite;
     }
     public void OnRightClick()
     {

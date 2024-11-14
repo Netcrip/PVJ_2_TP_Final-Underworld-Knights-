@@ -42,33 +42,34 @@ public class InventoryManager : MonoBehaviour
     //        }
     //    }
     //}
-    public void AddItem(string itemName, int quantity, Sprite itemSprite)
+    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
         // Verificar si el item ya está en el inventario
-        for (int i = 0; i < itemSlot.Length; i++)
-        {
-            if (itemSlot[i].isFull && itemSlot[i].itemName == itemName)
-            {
+        //for (int i = 0; i < itemSlot.Length; i++)
+        //{
+            //if (itemSlot[i].isFull && itemSlot[i].itemName == itemName)
+            //{
                 // Si el item ya está, solo aumenta la cantidad
-                itemSlot[i].quantity += quantity;
-                itemSlot[i].UpdateQuantityText(); // Asegúrate de tener un método para actualizar el texto si es necesario
-                Debug.Log("Cantidad actualizada: " + itemSlot[i].quantity + " de " + itemName);
-                return;
-            }
-        }
+               // itemSlot[i].quantity += quantity;
+             //   itemSlot[i].UpdateQuantityText(); // Asegúrate de tener un método para actualizar el texto si es necesario
+           //     Debug.Log("Cantidad actualizada: " + itemSlot[i].quantity + " de " + itemName);
+         //       return;
+       //     }
+     //   }
 
         // Si no se encuentra el item, agregarlo a un nuevo slot
         for (int i = 0; i < itemSlot.Length; i++)
         {
-            if (!itemSlot[i].isFull)
+            if (itemSlot[i].isFull == false && itemSlot[i].name == name || itemSlot[i].quantity == 0)
             {
-                itemSlot[i].AddItem(itemName, quantity, itemSprite);
-                Debug.Log("Item agregado: " + itemName);
-                return;
+                int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
+                if (leftOverItems > 0)
+                    leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription);
+                               
+                return leftOverItems;
             }
         }
-
-        Debug.Log("No hay espacio en el inventario.");
+        return quantity;
     }
 
     public void DeselectAllSlots()
