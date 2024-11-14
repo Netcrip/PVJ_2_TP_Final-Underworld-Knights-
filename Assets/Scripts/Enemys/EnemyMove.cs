@@ -28,6 +28,7 @@ public class EnemyMove : MonoBehaviour
 
     private bool inRespawnPosition;
 
+    public bool stuned{set;get;}
 
 
     [SerializeField] private AudioSource _moveSfx = null;
@@ -49,9 +50,9 @@ public class EnemyMove : MonoBehaviour
     {
         playerInSightRange = Physics.CheckSphere(transform.position, _sightRange, _whatIsPlayer);
         IsInResPawn();
-        if (!playerInSightRange && !enemyCombat.playerInAttackRange && !enemyCombat.playerInAttackLongRange && inRespawnPosition && enemyHealth.isAlive) iddle();
-        else if (!playerInSightRange && !enemyCombat.playerInAttackRange && !enemyCombat.playerInAttackLongRange && enemyHealth.isAlive && canMove && !stop) goToRespawn();
-        if (playerInSightRange && !enemyCombat.playerInAttackRange && enemyHealth.isAlive && canMove && !stop) ChasePlayer();
+        if (!playerInSightRange && !enemyCombat.playerInAttackRange && !enemyCombat.playerInAttackLongRange && inRespawnPosition && enemyHealth.isAlive && !stuned) iddle();
+        else if (!playerInSightRange && !enemyCombat.playerInAttackRange && !enemyCombat.playerInAttackLongRange && enemyHealth.isAlive && canMove && !stop && !stuned) goToRespawn();
+        if (playerInSightRange && !enemyCombat.playerInAttackRange && enemyHealth.isAlive && canMove && !stop && !stuned) ChasePlayer();
     }
 
     private void IsInResPawn()

@@ -6,8 +6,12 @@ using UnityEngine;
 public class PlayerStamina : MonoBehaviour
 {
     [SerializeField] float _maxStamina,_staminaRegeneration;
-    [SerializeField] float _staminaRegenerationCD,_staminaDecreaseCD;
+    ///[SerializeField] float _staminaRegenerationCD,_staminaDecreaseCD;
     public bool CanStaminaRegeneration { get; set; } = true;
+
+    private float delayStaminaRegeneration=1f;
+    private float delayStamina;
+
     [SerializeField] float stamina;
     bool canUseStamina = true;
 
@@ -33,7 +37,8 @@ public class PlayerStamina : MonoBehaviour
 
     void StaminaRegeneration()
     {
-        if (CanStaminaRegeneration && stamina<100) {
+        delayStamina+=Time.deltaTime;
+        if (delayStamina>=delayStaminaRegeneration && stamina<100) {
    
             if (stamina > _maxStamina)
             {
@@ -68,15 +73,22 @@ public class PlayerStamina : MonoBehaviour
         else if(stamina == _maxStamina)
             canUseStamina = true;
     }
-    public bool StaminaUse(float drecreaseAmount)
+    public bool StaminaUse(float drecreaseAmount, bool inTime)
     {
-        float decrease = drecreaseAmount * Time.deltaTime;
+        float decrease;
+        if(inTime)
+             decrease = drecreaseAmount * Time.deltaTime;
+        else
+             decrease = drecreaseAmount;
+
         if (stamina - decrease >= 0 && canUseStamina)
         {
             StaminaDecrease(decrease);
+            delayStamina=Time.deltaTime;
             return true;
         }
         else
             return false;
     }
+
 }
