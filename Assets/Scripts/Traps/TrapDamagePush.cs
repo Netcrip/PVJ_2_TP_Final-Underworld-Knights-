@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class Trap : MonoBehaviour
@@ -7,19 +8,16 @@ public class Trap : MonoBehaviour
     public float damage = 10f;
     public float pushForce = 5f;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
-        {
-            playerHealth.Damage(damage);
-        }
+        PlayerHealth hl = collision.gameObject.GetComponent<PlayerHealth>();
+        Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
 
-        Rigidbody playerRb = other.GetComponent<Rigidbody>();
-        if (playerRb != null)
+        if (hl != null)
         {
-            Vector3 pushDirection = (other.transform.position - transform.position).normalized;
-            playerRb.AddForce(pushDirection * pushForce, ForceMode.VelocityChange);
+            hl.Damage(damage);
+
+            rb.AddForce(transform.forward * pushForce, ForceMode.Force);           
         }
     }
 }

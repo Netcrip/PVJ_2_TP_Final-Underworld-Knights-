@@ -10,11 +10,13 @@ public class Trap2 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
+        if (other is CapsuleCollider)
         {
-            playerHealth.Damage(damage);
+            if (playerHealth != null)
+            {
+                playerHealth.Damage(damage);
+            }
         }
-
         //Rigidbody playerRb = other.GetComponent<Rigidbody>();
         //if (playerRb != null)
         //{

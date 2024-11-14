@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 7154172242564572442}
   - component: {fileID: 1429670679608129764}
   - component: {fileID: 4300721363449780419}
-  - component: {fileID: 8869589748644474113}
+  - component: {fileID: 672197134655091331}
   m_Layer: 0
   m_Name: Blades.005
   m_TagString: Untagged
@@ -213,7 +213,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7616928, y: 0.1, z: 0.41321027}
   m_Center: {x: 0.87478006, y: 2.2060943, z: -0.04178322}
---- !u!114 &8869589748644474113
+--- !u!114 &672197134655091331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
