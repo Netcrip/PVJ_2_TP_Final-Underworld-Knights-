@@ -7,6 +7,8 @@ TagManager:
   - CanvaStamina
   - Trap
   - Avatar
+  - Ground
+  - InvisibleWall
   layers:
   - Default
   - TransparentFX

@@ -226,7 +226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  pushForce: 5
+  invisibleWalls:
+  - {fileID: 1018733143227987616, guid: 6896d3c255c459248a82898d74b31503, type: 3}
 --- !u!1 &7985810490345795676
 GameObject:
   m_ObjectHideFlags: 0

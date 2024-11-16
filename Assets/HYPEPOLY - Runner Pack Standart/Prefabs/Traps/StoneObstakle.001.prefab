@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4160674240578858322}
   - component: {fileID: 7732896676019053210}
   - component: {fileID: 1193761043335191331}
+  - component: {fileID: 4553872901394269392}
+  - component: {fileID: 4709266872042909958}
   m_Layer: 0
   m_Name: StoneObstakle.001
   m_TagString: Untagged
@@ -106,3 +108,45 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7599637421401188828, guid: 7f48638c4996b254d845545e25da8c2b, type: 3}
+--- !u!65 &4553872901394269392
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3237871089686856571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7040641, y: 0.6000023, z: 0.87556046}
+  m_Center: {x: -1.5834571, y: 0.30001354, z: -0.07939431}
+--- !u!65 &4709266872042909958
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3237871089686856571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3757331, y: 0.6000023, z: 0.85060346}
+  m_Center: {x: 1.7892925, y: 0.30001354, z: -0.06691581}
