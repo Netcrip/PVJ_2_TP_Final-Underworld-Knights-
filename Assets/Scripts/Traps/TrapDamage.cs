@@ -17,11 +17,5 @@ public class Trap2 : MonoBehaviour
                 playerHealth.Damage(damage);
             }
         }
-        //Rigidbody playerRb = other.GetComponent<Rigidbody>();
-        //if (playerRb != null)
-        //{
-        //    Vector3 pushDirection = (other.transform.position - transform.position).normalized;
-        //    playerRb.AddForce(pushDirection * pushForce, ForceMode.VelocityChange);
-        //}
     }
 }

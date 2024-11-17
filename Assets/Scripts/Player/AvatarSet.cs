@@ -9,7 +9,7 @@ public class AvatarSet : MonoBehaviour
 
     void Start()
     {
-        switch (GameManager.Instance.avatarSelection){
+        switch (PlayerManager.Instance.avatarSelection){
             case "KnightA":              
                 KnightA.SetActive(true);        
             break;

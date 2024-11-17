@@ -16,12 +16,12 @@ public class AvatarSelection : MonoBehaviour
         animKnightC = knightC.GetComponent<Animator>();
         animKnightD = knightD.GetComponent<Animator>();
         animKnightE = knightE.GetComponent<Animator>();
-        GameManager.Instance.SetAvatar("KnightB");
+        PlayerManager.Instance.SetAvatar("KnightB");
         animKnightB.SetBool("selected",true);
     }
 
     public void SelectedToGO(){
-        GameManager.Instance.LoadScene("LvlTest");
+        GameManager.Instance.LoadScene("Variante 1");
     }
     public void AddScreen(){
         GameManager.Instance.LoadSceneAdition("SampleScene");
@@ -34,7 +34,7 @@ public class AvatarSelection : MonoBehaviour
                 spotC.SetActive(false);
                 spotD.SetActive(false);
                 spotE.SetActive(false);
-                GameManager.Instance.SetAvatar(selectAvatar);
+                PlayerManager.Instance.SetAvatar(selectAvatar);
                 animKnightA.SetBool("selected",true);
                 animKnightB.SetBool("selected",false);
                 animKnightC.SetBool("selected",false);
@@ -49,7 +49,7 @@ public class AvatarSelection : MonoBehaviour
                 spotC.SetActive(false);
                 spotD.SetActive(false);
                 spotE.SetActive(false);
-                GameManager.Instance.SetAvatar(selectAvatar);
+                PlayerManager.Instance.SetAvatar(selectAvatar);
                 animKnightA.SetBool("selected",false);
                 animKnightB.SetBool("selected",true);
                 animKnightC.SetBool("selected",false);
@@ -62,7 +62,7 @@ public class AvatarSelection : MonoBehaviour
                 spotC.SetActive(true);
                 spotD.SetActive(false);
                 spotE.SetActive(false);
-                GameManager.Instance.SetAvatar(selectAvatar);
+                PlayerManager.Instance.SetAvatar(selectAvatar);
                 animKnightA.SetBool("selected",false);
                 animKnightB.SetBool("selected",false);
                 animKnightC.SetBool("selected",true);
@@ -75,7 +75,7 @@ public class AvatarSelection : MonoBehaviour
                 spotC.SetActive(false);
                 spotD.SetActive(true);
                 spotE.SetActive(false);
-                GameManager.Instance.SetAvatar(selectAvatar);
+                PlayerManager.Instance.SetAvatar(selectAvatar);
                 animKnightA.SetBool("selected",false);
                 animKnightB.SetBool("selected",false);
                 animKnightC.SetBool("selected",false);
@@ -88,7 +88,7 @@ public class AvatarSelection : MonoBehaviour
                 spotC.SetActive(false);
                 spotD.SetActive(false);
                 spotE.SetActive(true);
-                GameManager.Instance.SetAvatar(selectAvatar);
+                PlayerManager.Instance.SetAvatar(selectAvatar);
                 animKnightA.SetBool("selected",false);
                 animKnightB.SetBool("selected",false);
                 animKnightC.SetBool("selected",false);

@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 {
     // 
     [SerializeField]float health;
-    [SerializeField] float _maxHealt=100;
+    [SerializeField] float _maxHealth=100;
     private Combat combat;
     private PlayerInput playerInput;
     private Animator anim;
@@ -18,13 +18,23 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     public Action onUnsuscribe;
     public Action<float, float> onHealthchange;
 
-    void Start()
+    void Awake()
     {
         UiManager.Instance.PlayerHealth(this);
+        PlayerManager.Instance.PlayerHealth(this);
         combat = GetComponent<Combat>();
         playerInput = GetComponent<PlayerInput>();
         anim = GetComponent<Animator>();
-        health =_maxHealt;
+        if(PlayerManager.Instance.playerHealth==0){
+            health = _maxHealth;
+            onHealthchange?.Invoke(health, _maxHealth);
+        }
+        else{
+            health=PlayerManager.Instance.playerHealth;
+            _maxHealth=PlayerManager.Instance.playerMaxHealth;
+            onHealthchange?.Invoke(health, _maxHealth);
+        }
+
     }
     private void Update()
     {
@@ -41,13 +51,13 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         {
             anim.SetTrigger("Defence");
             health -= (damageAmount/2);
-            onHealthchange?.Invoke(health,_maxHealt);
+            onHealthchange?.Invoke(health,_maxHealth);
         }
         else
         {
             anim.SetTrigger("Damage");
             health -= damageAmount;
-            onHealthchange?.Invoke(health, _maxHealt);
+            onHealthchange?.Invoke(health, _maxHealth);
         }
             
 
@@ -61,15 +71,15 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     public void Heal(float healAmount)
     {         
-        if (health + healAmount <= _maxHealt)
+        if (health + healAmount <= _maxHealth)
         {
             health += healAmount;
-            onHealthchange?.Invoke(health, _maxHealt);
+            onHealthchange?.Invoke(health, _maxHealth);
         }
         else
         {
-            health = _maxHealt;
-            onHealthchange?.Invoke(health, _maxHealt);
+            health = _maxHealth;
+            onHealthchange?.Invoke(health, _maxHealth);
         }
     }
     public void Unsuscribe(){

@@ -24,7 +24,7 @@ using UnityEngine;
 
         public bool Defence { get; private set; } = false;
 
-        BoxCollider weapon, shield;
+        [SerializeField] BoxCollider weapon, shield;
         BoxCollider[] colliders;
 
         private float delayAttack;
@@ -34,7 +34,7 @@ using UnityEngine;
         [SerializeField]private float delayToAttackShield=4f;
 
 
-        private void Start()
+        private void Awake()
         {
             animator = GetComponent<Animator>();
             playerInput = GetComponent<PlayerInput>();
@@ -102,7 +102,9 @@ using UnityEngine;
             Defence = block;
         }
 
-
+        private void OnTriggerStay(Collider other) {
+            
+        }
          private void OnTriggerEnter(Collider other)
         {
             EnemyHealth eHealth = other.GetComponent<EnemyHealth>();
