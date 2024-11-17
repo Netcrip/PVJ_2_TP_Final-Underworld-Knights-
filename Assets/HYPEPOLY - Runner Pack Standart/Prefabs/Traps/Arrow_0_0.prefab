@@ -4855,6 +4855,7 @@ GameObject:
   - component: {fileID: 1070756200881840853}
   - component: {fileID: 1409783621271111236}
   - component: {fileID: 8824789118115793838}
+  - component: {fileID: 3286590783174561123}
   m_Layer: 0
   m_Name: Arrow_0_0
   m_TagString: Trap
@@ -4947,5 +4948,18 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.14820005, y: 0.14820005, z: 1.5441809}
-  m_Center: {x: 0.0000016912818, y: -0.0015600398, z: -0.14962077}
+  m_Size: {x: 0.33546725, y: 0.31399864, z: 1.5441809}
+  m_Center: {x: 0.010935232, y: 0.02279213, z: -0.14962077}
+--- !u!114 &3286590783174561123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4933393897561070433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06904beb6506ebe4e917726987f81f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

@@ -51,5 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "PVJ_2_TP_Final-Underworld-Knights-.sln"
+    "dotnet.defaultSolution": "PVJ_2_TP_Final-Underworld-Knights-.sln",
+    "dotnet.preferCSharpExtension": true
 }

@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public static GameManager Instance {get; private set;}
     public string avatarSelection {get; private set;}
-    public Vector2 _dungeonSize {get; private set;}
+    //public Vector2 _dungeonSize {get; private set;}
+    public Vector3 respawn{get;private set;}
     private void Awake(){
         if(Instance != null && Instance!= this){
             Destroy(this);
@@ -28,4 +29,7 @@ public class GameManager : MonoBehaviour
     public void LoadSceneAdition(string scene){
         SceneManager.LoadScene(scene, LoadSceneMode.Additive);
         }
+    public void SetRespanw(Vector3 position){
+        respawn = position;
+    }
 }
