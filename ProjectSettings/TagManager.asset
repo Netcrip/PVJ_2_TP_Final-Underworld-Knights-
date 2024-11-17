@@ -7,6 +7,10 @@ TagManager:
   - CanvaStamina
   - Weapon
   - Shield
+  - Trap
+  - Avatar
+  - Ground
+  - InvisibleWall
   layers:
   - Default
   - TransparentFX
@@ -24,7 +28,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Wall
   - 
   - 
   - 

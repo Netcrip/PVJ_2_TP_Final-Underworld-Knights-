@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 5370056702211902218}
   m_Layer: 0
   m_Name: Hang_Saw_2_0
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -542,9 +542,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.3571534, y: 17.552, z: 1.3902259}
   m_Center: {x: -4.831809, y: -7.8, z: 0.40920472}
@@ -5403,6 +5403,7 @@ GameObject:
   - component: {fileID: 8642358800955430224}
   - component: {fileID: 8318249936531458287}
   - component: {fileID: 5791689490443424202}
+  - component: {fileID: 4803994651629033455}
   m_Layer: 0
   m_Name: Hang_Mace.001
   m_TagString: Untagged
@@ -5497,3 +5498,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.75
   m_Center: {x: -0.00000065565064, y: -0.54975545, z: -0.0000023841853}
+--- !u!114 &4803994651629033455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6878572829225536085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8365bd21fcf2d804f8f4f28e80b7c236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  pushForce: 5
