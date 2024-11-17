@@ -21,4 +21,6 @@ public class Position : MonoBehaviour
                 trap.ToggleInvisibleWalls(true);            
         }
     }
+
+
 }
