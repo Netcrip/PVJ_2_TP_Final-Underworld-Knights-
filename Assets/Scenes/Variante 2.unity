@@ -7594,6 +7594,10 @@ PrefabInstance:
       propertyPath: m_ImplicitCom
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1804689972053331072, guid: 6c858214059a780458e1313e499913a2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3057177376354901360, guid: 6c858214059a780458e1313e499913a2, type: 3}
       propertyPath: m_Name
       value: Avatars
@@ -7645,10 +7649,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1804689972039731072, guid: 6c858214059a780458e1313e499913a2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1633016532}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c858214059a780458e1313e499913a2, type: 3}
 --- !u!1001 &762714088
 PrefabInstance:
@@ -14204,6 +14205,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5910764667820911497, guid: 2686e9acb4c2b08439df1893566ee3e7, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8708385763270860547, guid: 2686e9acb4c2b08439df1893566ee3e7, type: 3}
       propertyPath: m_Name
       value: Canvas 1
@@ -15253,23 +15258,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5173769514136217690, guid: a6c75e26e33ea624fac669206336ebd6, type: 3}
   m_PrefabInstance: {fileID: 1628688725}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1633016521 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1804689972039731072, guid: 6c858214059a780458e1313e499913a2, type: 3}
-  m_PrefabInstance: {fileID: 760319267}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1633016532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633016521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d32ae3619cb1e4b90f06e1e4c2553c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1634683631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4082937448628983613, guid: f2c95d20777054c4189f52eee11b4a98, type: 3}
