@@ -4,41 +4,42 @@ using UnityEngine;
 
 public class TrapDamageTime : MonoBehaviour
 {
-    public float damagePerSecond = 5f;
+    public float damage = 10f; // Daño por golpe al jugador
+    private float delay;
+    [SerializeField] private float delayCD = 5f;
 
-    private bool playerInZone = false;
-    private PlayerHealth playerHealth;
-    private Coroutine damageCoroutine;
 
-    private void OnTriggerEnter(Collider other)
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+    //    if (other is CapsuleCollider)
+    //    {
+    //        if (playerHealth != null)
+    //        {
+    //            playerHealth.Damage(damage);
+    //        }
+    //    }
+    //}
+
+    private void OnTriggerStay(Collider other)
     {
-        playerHealth = other.GetComponent<PlayerHealth>();
+        // Comprueba si el objeto con el que colisionó tiene un componente PlayerHealth
+        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+
+        //delay += Time.deltaTime;
+        //if (delay > delayCD)
+        //{
+            // Llamado al metodo que aplica el daño
+            ApllyDamage(playerHealth);
+
+            // Reseta el delay
+            //delay = Time.deltaTime;
+        //}
+    }
+
+    public void ApllyDamage(PlayerHealth playerHealth)
+    {
         if (playerHealth != null)
-        {
-            playerInZone = true;
-            damageCoroutine = StartCoroutine(ApplyDamageOverTime());
-        }        
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (playerInZone)
-        {
-            playerInZone = false;
-            if (damageCoroutine != null)
-            {
-                StopCoroutine(damageCoroutine);
-                damageCoroutine = null;
-            }
-        }
-    }
-
-    private IEnumerator ApplyDamageOverTime()
-    {
-        while (playerInZone)
-        {
-            playerHealth.Damage(damagePerSecond * Time.deltaTime);
-            yield return null;
-        }
+            playerHealth.Damage(damage * Time.deltaTime);
     }
 }

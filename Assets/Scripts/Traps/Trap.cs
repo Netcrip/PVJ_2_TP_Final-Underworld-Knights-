@@ -16,15 +16,6 @@ public class Trap : MonoBehaviour
     private void Start()
     {
         _characterController = GameObject.FindWithTag("Player").GetComponent<CharacterController>();
-
-        // Encuentra todas las paredes invisibles en la escena por su etiqueta
-        //GameObject[] walls = GameObject.FindGameObjectsWithTag("InvisibleWall");
-        //invisibleWalls = new Collider[walls.Length];
-
-        //for (int i = 0; i < walls.Length; i++)
-        //{
-        //    invisibleWalls[i] = walls[i].GetComponent<Collider>();
-        //}
     }
 
     private void Update()
