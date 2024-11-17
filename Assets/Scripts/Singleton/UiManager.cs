@@ -14,11 +14,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] float staminaBarShow=5;
     private float staminaBarCD;
 
-    [SerializeField] private Image _greenWheel,_redWheel, _staminaWheel;
+    [SerializeField] private Image greenWheel,redWheel, staminaWheel,healthBar;
     
-
-    [SerializeField ]private Image healthBar;
-
 
     public void Awake()
     {
@@ -39,22 +36,22 @@ public class UiManager : MonoBehaviour
     private void HideStaminaBar()
     {
         
-        if (_greenWheel.fillAmount >= 0.99)
+        if (greenWheel.fillAmount >= 0.99)
         {
             staminaBarCD+= Time.deltaTime;
         }
         else
         {
-            _staminaWheel.gameObject.SetActive(true);
+            staminaWheel.gameObject.SetActive(true);
             staminaBarCD = Time.deltaTime;
         }
             
         if (staminaBarCD >staminaBarShow)
         {
-            _staminaWheel.gameObject.SetActive(false);
+            staminaWheel.gameObject.SetActive(false);
         }
         else
-            _staminaWheel.gameObject.SetActive(true);
+            staminaWheel.gameObject.SetActive(true);
     }
 
     public void PlayerStamina(PlayerStamina stamina)
@@ -70,35 +67,43 @@ public class UiManager : MonoBehaviour
         Debug.Log("Cargo Hp");
         healthInstance = Health;
         healthInstance.onHealthchange += HealtChange;
-        healthInstance.onDead += DoOnDead;
+        healthInstance.onDead += DoOnUnsuscribe;
+        SetCamvas();
     }
     
     private void StaminaDecrease(float stamina, float maxStamina)
     {
-        _staminaWheel.enabled = true;
-        _redWheel.fillAmount = (stamina / maxStamina);
-        _greenWheel.fillAmount = (stamina/ maxStamina-0.05f);
+        staminaWheel.enabled = true;
+        redWheel.fillAmount = (stamina / maxStamina);
+        greenWheel.fillAmount = (stamina/ maxStamina-0.05f);
     }
     private void StaminaRegeneration(float stamina, float maxStamina)
     {
-        if(_greenWheel.fillAmount < 0.05) 
+        if(greenWheel.fillAmount < 0.05) 
         { 
-            _greenWheel.enabled = false;
+            greenWheel.enabled = false;
         }
-        if (_greenWheel.fillAmount >= 1)
+        if (greenWheel.fillAmount >= 1)
         {
-            _greenWheel.enabled = true;
+            greenWheel.enabled = true;
         }
 
 
-        _redWheel.fillAmount = (stamina / maxStamina);
-        _greenWheel.fillAmount = (stamina / maxStamina);
+        redWheel.fillAmount = (stamina / maxStamina);
+        greenWheel.fillAmount = (stamina / maxStamina);
     }
-    private void DoOnDead()
+    private void DoOnUnsuscribe()
     {
         staminaInstance.onStaminaRegeneration -= StaminaRegeneration;
         staminaInstance.onStaminaDecrease -= StaminaDecrease;
-        healthInstance.onDead -= DoOnDead;
+        healthInstance.onDead -= DoOnUnsuscribe;
+    }
+
+    private void SetCamvas(){
+        greenWheel = GameObject.Find("GreenWheel")?.GetComponent<Image>();
+        redWheel = GameObject.Find("RedWheel")?.GetComponent<Image>();
+        staminaWheel = GameObject.Find("StaminaWheelBG")?.GetComponent<Image>();
+        healthBar = GameObject.Find("HealthBar")?.GetComponent<Image>();
     }
 
     private void HealtChange(float healt,float maxHealt)
