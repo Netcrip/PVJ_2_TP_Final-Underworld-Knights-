@@ -59,6 +59,7 @@ public class UiManager : MonoBehaviour
 
     public void PlayerStamina(PlayerStamina stamina)
     {
+        Debug.Log("Cargo stamina");
         staminaInstance = stamina;
         staminaInstance.onStaminaRegeneration += StaminaRegeneration;
         staminaInstance.onStaminaDecrease += StaminaDecrease;
@@ -66,8 +67,9 @@ public class UiManager : MonoBehaviour
     }
     public void PlayerHealth(PlayerHealth Health)
     {
+        Debug.Log("Cargo Hp");
         healthInstance = Health;
-        healthInstance.onHealthchange = HealtChange;
+        healthInstance.onHealthchange += HealtChange;
         healthInstance.onDead += DoOnDead;
     }
     
@@ -101,6 +103,7 @@ public class UiManager : MonoBehaviour
 
     private void HealtChange(float healt,float maxHealt)
     {
+        Debug.Log("healh change");
         float healtBar = healt / maxHealt;
         healthBar.fillAmount = healtBar;
         if (healtBar > 0.75)

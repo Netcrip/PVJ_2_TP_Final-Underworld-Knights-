@@ -15,7 +15,7 @@
         private PlayerStamina _playerStamina;
 
         private Vector2 lastMovementInput;
-        private Vector3 moveDirection = Vector3.zero;
+        [SerializeField ]private Vector3 moveDirection = Vector3.zero;
 
         [SerializeField] float _gravity = 10;
         [SerializeField] float _jumpSpeed = 4;
@@ -142,11 +142,11 @@
 
         private void Dash()
         {
-            if(_playerInput.Dash)
+            if(_playerInput.Dash && (moveDirection.x !=0f || moveDirection.z !=0f))
             {
-                if (_playerStamina.StaminaUse(_dashStamina))
+                if (_playerStamina.StaminaUse(_dashStamina,true))
                 {
-                    _playerStamina.CanStaminaRegeneration=false;
+                    //_playerStamina.CanStaminaRegeneration=false;
                     _maxSpeed = speed * 1.5f;
                 }
                 else
@@ -156,7 +156,7 @@
             else
             {
                _maxSpeed = speed;
-               _playerStamina.CanStaminaRegeneration = true;
+               //_playerStamina.CanStaminaRegeneration = true;
             }
         }
     }

@@ -50,8 +50,8 @@ public class Weapon : MonoBehaviour
         }
         if (!oneExplosion)
         {
-            //GameObject explosionFX = Instantiate(explosion, transform.position, Quaternion.identity);
-            //Destroy(explosionFX, 1f);
+            GameObject explosionFX = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(explosionFX, 2f);
             oneExplosion = true;
         }
        

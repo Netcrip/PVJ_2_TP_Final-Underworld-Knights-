@@ -10,9 +10,9 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     // 
     [SerializeField]float health;
     [SerializeField] float _maxHealt=100;
-    private Combat _combat;
-    private PlayerInput _playerInput;
-
+    private Combat combat;
+    private PlayerInput playerInput;
+    private Animator anim;
     //Eventos
     public Action onDead;
     public Action<float, float> onHealthchange;
@@ -20,8 +20,9 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     void Start()
     {
         UiManager.Instance.PlayerHealth(this);
-        _combat = GetComponent<Combat>();
-        _playerInput = GetComponent<PlayerInput>();
+        combat = GetComponent<Combat>();
+        playerInput = GetComponent<PlayerInput>();
+        anim = GetComponent<Animator>();
         health =_maxHealt;
     }
     private void Update()
@@ -35,13 +36,15 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     private void GetHit(float damageAmount)
     {   
-        if (_combat.Defence)
+        if (combat.Defence)
         {
+            anim.SetTrigger("Defence");
             health -= (damageAmount/2);
             onHealthchange?.Invoke(health,_maxHealt);
         }
         else
         {
+            anim.SetTrigger("Damage");
             health -= damageAmount;
             onHealthchange?.Invoke(health, _maxHealt);
         }
@@ -50,6 +53,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         if(health < 0)
         {
             onDead?.Invoke();
+            anim.SetTrigger("Die");
             health = 0;
         }
     }
@@ -71,12 +75,12 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     private void Prueba()
     {
        
-        if (_playerInput.Damage)
+        if (playerInput.Damage)
         {
             Debug.Log("Damage");
             GetHit(15);
         }
-        if (_playerInput.Heal)
+        if (playerInput.Heal)
         {
             Debug.Log("Heal");
             Heal(10);

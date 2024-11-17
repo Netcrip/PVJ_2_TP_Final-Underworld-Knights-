@@ -36,6 +36,8 @@ public class EnemyCombat : MonoBehaviour
 
     [SerializeField] BoxCollider _weaponCollider;
 
+    private bool spinAttack;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -50,8 +52,8 @@ public class EnemyCombat : MonoBehaviour
     {
         playerInAttackLongRange = Physics.CheckSphere(transform.position, _attackLongRange - 1f, _whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, _attackRange - 1f, _whatIsPlayer);
-        if (playerInAttackLongRange && !enemyMove.playerInSightRange && enemyHealth.isAlive && !enemyMove.stop) LongAttackPlayer();
-        if (playerInAttackRange && enemyMove.playerInSightRange && enemyHealth.isAlive && !enemyMove.stop) AttackPlayer();
+        if (playerInAttackLongRange && !enemyMove.playerInSightRange && enemyHealth.isAlive && !enemyMove.stop && !enemyMove.stuned) LongAttackPlayer();
+        if (playerInAttackRange && enemyMove.playerInSightRange && enemyHealth.isAlive && !enemyMove.stop && !enemyMove.stuned) AttackPlayer();
     }
 
     private void FixedUpdate()
@@ -98,7 +100,7 @@ public class EnemyCombat : MonoBehaviour
     {
         ///_swordShow.SetActive(false);
         Rigidbody rb = Instantiate(_weapon, _weaponPosition.position, Quaternion.Euler(0, 90, 0)).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * (hit.distance / 1.8f), ForceMode.Impulse);
+        rb.AddForce(transform.forward * (hit.distance / 2f), ForceMode.Impulse);
         rb.AddForce(transform.up * 8f, ForceMode.Impulse);
         //rb.AddTorque(UnityEngine.Random.Range(0,500), UnityEngine.Random.Range(0, 500), UnityEngine.Random.Range(0, 500));
         rb.AddTorque(transform.up * 360f);
@@ -120,11 +122,19 @@ public class EnemyCombat : MonoBehaviour
             Quaternion finalRotation = Quaternion.Lerp(currentRotation, newRotation, Time.deltaTime * _rotationSpeed);
             transform.rotation = finalRotation;
 
-
-
-            //Ray ray = new Ray(transform.position, transform.forward);
-            if (IsFron())//Physics.Raycast(ray, out hit, _attackRange))
-            {
+            if(UnityEngine.Random.Range(0,100)>90){
+                enemyMove.canMove = false;
+                _weaponCollider.enabled = true;
+                //_sfx.PlayOneShot(_attackSfx);
+                anim.SetTrigger("SpinAttack");
+                alreadyAttacked = true;
+                spinAttack=true;
+                Invoke(nameof(ResetAttack), _timeBetweenAttacks+2f);
+                Invoke(nameof(toggleCanmove), 1f);
+            }
+            else{
+                if (IsFron())//Physics.Raycast(ray, out hit, _attackRange))
+                {
 
                 enemyMove.canMove = false;
                 _weaponCollider.enabled = true;
@@ -134,7 +144,10 @@ public class EnemyCombat : MonoBehaviour
                 alreadyAttacked = true;
                 Invoke(nameof(ResetAttack), _timeBetweenAttacks);
                 Invoke(nameof(toggleCanmove), 1f);
+                }
             }
+            //Ray ray = new Ray(transform.position, transform.forward);
+            
 
 
         }
@@ -159,11 +172,12 @@ public class EnemyCombat : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        // Lógica para aplicar daño al enemigo
+        // Lï¿½gica para aplicar daï¿½o al enemigo
         PlayerHealth isplayer = other.GetComponent<PlayerHealth>();
         if (isplayer != null)
         {
-            _weaponCollider.enabled = false;
+            if(!spinAttack)
+                _weaponCollider.enabled = false;
             isplayer.Damage(_damageAttack);
         }
     }
@@ -177,7 +191,6 @@ public class EnemyCombat : MonoBehaviour
     {
         enemyMove.canMove = !enemyMove.canMove;
     }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

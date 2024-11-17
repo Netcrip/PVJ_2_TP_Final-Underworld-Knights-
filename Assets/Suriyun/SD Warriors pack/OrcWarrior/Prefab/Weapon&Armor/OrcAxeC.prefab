@@ -151,7 +151,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 72
-  damageAttack: 5
-  explosion: {fileID: 0}
+  damageAttack: 20
+  explosion: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   rockSFX: {fileID: 0}
   sfx: {fileID: 0}

@@ -13,11 +13,19 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 
     public bool isAlive { get; private set; }=true;
 
+    private EnemyMove enemyMove;
+    [SerializeField] float _stunDuration=5f;
+
+    GameObject stunVfx;
+    [SerializeField] GameObject Lightings;
+    [SerializeField] GameObject LightingsTransform;
+
     void Awake()
     {
         health = _maxHealth;
         anim = GetComponent<Animator>();
-        healthBar = GetComponent<HealthBarManager>();
+        healthBar = GetComponentInChildren<HealthBarManager>();
+        enemyMove = GetComponent<EnemyMove>();
     }
 
     // Update is called once per frame
@@ -50,6 +58,18 @@ public class EnemyHealth : MonoBehaviour, IDamagable
             isAlive = false;
             Invoke(nameof(DestroyEnemy), 4f);
         }
+    }
+     public void StunOn(){
+        enemyMove.stuned=true;
+        stunVfx = Instantiate(Lightings, LightingsTransform.transform.position, Quaternion.identity);
+        anim.SetBool("Stun",true);
+        Invoke(nameof(StunOff), _stunDuration);
+
+    }
+    private void StunOff(){
+        Destroy(stunVfx);    
+        enemyMove.stuned=false;
+        anim.SetBool("Stun",false);
     }
     private void DestroyEnemy()
     {
