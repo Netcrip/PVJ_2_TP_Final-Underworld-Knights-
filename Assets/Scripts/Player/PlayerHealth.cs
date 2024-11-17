@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     private Animator anim;
     //Eventos
     public Action onDead;
+    public Action onUnsuscribe;
     public Action<float, float> onHealthchange;
 
     void Start()
@@ -70,6 +71,9 @@ public class PlayerHealth : MonoBehaviour, IDamagable
             health = _maxHealt;
             onHealthchange?.Invoke(health, _maxHealt);
         }
+    }
+    public void Unsuscribe(){
+        onUnsuscribe?.Invoke();
     }
 
     private void Prueba()
