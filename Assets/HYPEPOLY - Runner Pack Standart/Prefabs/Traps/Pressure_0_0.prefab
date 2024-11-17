@@ -4996,6 +4996,7 @@ GameObject:
   - component: {fileID: 5482636775349959419}
   - component: {fileID: 292399849349719927}
   - component: {fileID: 1207409081052015075}
+  - component: {fileID: 6648867189753962964}
   m_Layer: 0
   m_Name: Pressure_0_Mooved
   m_TagString: Untagged
@@ -5090,6 +5091,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2452307159121726401, guid: 7f48638c4996b254d845545e25da8c2b, type: 3}
+--- !u!114 &6648867189753962964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278608794190225169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8365bd21fcf2d804f8f4f28e80b7c236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &4282714089417687483
 GameObject:
   m_ObjectHideFlags: 0

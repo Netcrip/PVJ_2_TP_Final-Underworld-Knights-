@@ -34,6 +34,8 @@ Transform:
   m_Children:
   - {fileID: 4711842102602861663}
   - {fileID: 5461560729667693680}
+  - {fileID: 4961373605310241556}
+  - {fileID: 8916980152219044023}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1110208294910040430
@@ -103,11 +105,117 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6830652708270271077, guid: 7f48638c4996b254d845545e25da8c2b, type: 3}
+--- !u!1 &6202847238538814116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8916980152219044023}
+  - component: {fileID: 4276581448345462438}
+  m_Layer: 0
+  m_Name: Tabla (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8916980152219044023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202847238538814116}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.0038782211, z: -0, w: 0.99999255}
+  m_LocalPosition: {x: -0.19, y: 0.418, z: 1.94}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5056372888761522209}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.444, z: 0}
+--- !u!65 &4276581448345462438
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202847238538814116}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.289151, y: 0.14325917, z: 0.8679523}
+  m_Center: {x: 0.19078554, y: -0.428366, z: 0.06602505}
+--- !u!1 &9042871700884485421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4961373605310241556}
+  - component: {fileID: 2883426748461646834}
+  m_Layer: 0
+  m_Name: Tabla
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4961373605310241556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042871700884485421}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.030115766, z: -0, w: 0.99954647}
+  m_LocalPosition: {x: -0.32, y: 0.418, z: 4.111}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5056372888761522209}
+  m_LocalEulerAnglesHint: {x: 0, y: -3.452, z: 0}
+--- !u!65 &2883426748461646834
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042871700884485421}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.1483197, y: 0.14325917, z: 1.0584003}
+  m_Center: {x: 0.26118848, y: -0.42836675, z: -0.02920012}
 --- !u!1001 &6330381764117074950
 PrefabInstance:
   m_ObjectHideFlags: 0
