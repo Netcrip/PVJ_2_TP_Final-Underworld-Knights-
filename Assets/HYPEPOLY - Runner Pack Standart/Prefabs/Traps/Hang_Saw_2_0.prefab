@@ -5406,7 +5406,7 @@ GameObject:
   - component: {fileID: 4803994651629033455}
   m_Layer: 0
   m_Name: Hang_Mace.001
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5511,4 +5511,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  pushForce: 5
