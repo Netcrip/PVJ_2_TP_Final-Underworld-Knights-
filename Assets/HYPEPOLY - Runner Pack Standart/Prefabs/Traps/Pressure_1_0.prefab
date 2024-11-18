@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8013678090027713497}
   - component: {fileID: 2258427175223185756}
   - component: {fileID: 7305331463277855481}
+  - component: {fileID: 3291407620428406673}
   m_Layer: 0
   m_Name: Pressure_0_Mooved
   m_TagString: Untagged
@@ -106,6 +107,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3573456972932635712, guid: 7f48638c4996b254d845545e25da8c2b, type: 3}
+--- !u!114 &3291407620428406673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54209025615354625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8365bd21fcf2d804f8f4f28e80b7c236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  invisibleWalls:
+  - {fileID: 1018733143227987616, guid: 6896d3c255c459248a82898d74b31503, type: 3}
 --- !u!1 &578869647197052656
 GameObject:
   m_ObjectHideFlags: 0
@@ -24823,7 +24839,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

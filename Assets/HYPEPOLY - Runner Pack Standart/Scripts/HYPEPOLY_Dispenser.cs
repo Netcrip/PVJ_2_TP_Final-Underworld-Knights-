@@ -30,8 +30,9 @@ public class HYPEPOLY_Dispenser : MonoBehaviour
     {
         arrowReady = false;
         arrowSize = 0f;
+       
         currentArrow = GameObject.Instantiate(arrowPrefab, arrowsParent);
-        currentArrow.transform.localScale = Vector3.zero;
+        currentArrow.transform.localScale = Vector3.zero;                
     }
     public void Shoot()
     {

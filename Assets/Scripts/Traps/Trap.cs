@@ -11,20 +11,11 @@ public class Trap : MonoBehaviour
     private float pushDecay = 5f; // Velocidad a la que el empuje disminuye
     private Vector3 _pushDirection; // Dirección del empuje 
 
-    public Collider[] invisibleWalls; // Lista de colisionadores de las paredes invisibles
+    //public Collider[] invisibleWalls; // Lista de colisionadores de las paredes invisibles
 
     private void Start()
     {
         _characterController = GameObject.FindWithTag("Player").GetComponent<CharacterController>();
-
-        // Encuentra todas las paredes invisibles en la escena por su etiqueta
-        GameObject[] walls = GameObject.FindGameObjectsWithTag("InvisibleWall");
-        invisibleWalls = new Collider[walls.Length];
-
-        for (int i = 0; i < walls.Length; i++)
-        {
-            invisibleWalls[i] = walls[i].GetComponent<Collider>();
-        }
     }
 
     private void Update()
@@ -72,9 +63,10 @@ public class Trap : MonoBehaviour
 
     public void ToggleInvisibleWalls(bool isActive)
     {
-        foreach (var wall in invisibleWalls)
+        GameObject[] invisibleWalls = GameObject.FindGameObjectsWithTag("InvisibleWall");
+        foreach (GameObject wall in invisibleWalls)
         {
-            wall.enabled = isActive;
+            wall.GetComponent<BoxCollider>().enabled = isActive;
         }
     }
 }

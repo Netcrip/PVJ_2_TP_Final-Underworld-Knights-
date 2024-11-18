@@ -183,7 +183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5402752095043870744
 Transform:
   m_ObjectHideFlags: 0
@@ -4956,7 +4956,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 136368032bbd00349be8d1a8f11169ef, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5311,6 +5310,8 @@ GameObject:
   - component: {fileID: 8889441140223599036}
   - component: {fileID: 8889441140223599038}
   - component: {fileID: 8889441140223599037}
+  - component: {fileID: 602655537276436190}
+  - component: {fileID: 4657339317582396730}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -10152,3 +10153,38 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!65 &602655537276436190
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889441140223599035}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6754045, y: 1.938794, z: 7.692455}
+  m_Center: {x: 0.008835524, y: 0.106613696, z: 3.3462274}
+--- !u!114 &4657339317582396730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889441140223599035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2989893c65404e4faf2d6e9cc89f807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  delayCD: 5
