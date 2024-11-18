@@ -769,6 +769,18 @@ PrefabInstance:
       value: KnightB
       objectReference: {fileID: 0}
     - target: {fileID: 404052, guid: f8c8d905a2a74f14aae196f66d66e786, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404052, guid: f8c8d905a2a74f14aae196f66d66e786, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404052, guid: f8c8d905a2a74f14aae196f66d66e786, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404052, guid: f8c8d905a2a74f14aae196f66d66e786, type: 3}
       propertyPath: m_LocalPosition.x
       value: 624.0482
       objectReference: {fileID: 0}

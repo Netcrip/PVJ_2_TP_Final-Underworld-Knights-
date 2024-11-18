@@ -29622,6 +29622,7 @@ GameObject:
   - component: {fileID: 3910764803395593484}
   - component: {fileID: 225859839863750048}
   - component: {fileID: 2294521891602435309}
+  - component: {fileID: 4784356929726136275}
   m_Layer: 0
   m_Name: Pressure_0_0
   m_TagString: Trap
@@ -29713,7 +29714,7 @@ Animator:
   m_GameObject: {fileID: 5866461691535349242}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 197aed0908b06fb43beeab5b7393168f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 220e5b6f55bc69941af3ba8c0c35a0e1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -29745,6 +29746,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.4000013, y: 2.8609781, z: 4.852457}
   m_Center: {x: 2.1999998, y: 0.099999666, z: 0.00000047683716}
+--- !u!114 &4784356929726136275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866461691535349242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a39cdfb80b9cd47acd1eac579858bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startDelay: 3
 --- !u!1 &9139584186736428014
 GameObject:
   m_ObjectHideFlags: 0
