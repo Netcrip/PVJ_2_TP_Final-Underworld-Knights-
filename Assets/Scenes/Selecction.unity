@@ -400,6 +400,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5472996, guid: 3a6d654b7e2088143a3823eaa09d5553, type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 9509940, guid: 3a6d654b7e2088143a3823eaa09d5553, type: 3}
       propertyPath: m_Controller
       value: 
@@ -711,6 +715,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5485392, guid: 57f1d4d7958208840a86e9ae1639cb13, type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 9576364, guid: 57f1d4d7958208840a86e9ae1639cb13, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -799,6 +807,10 @@ PrefabInstance:
     - target: {fileID: 404052, guid: f8c8d905a2a74f14aae196f66d66e786, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466976, guid: f8c8d905a2a74f14aae196f66d66e786, type: 3}
+      propertyPath: m_Constraints
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 9590512, guid: f8c8d905a2a74f14aae196f66d66e786, type: 3}
       propertyPath: m_Controller
@@ -1032,6 +1044,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5490154, guid: 98b43329fe29d5849aceb81f4bb77198, type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 9537486, guid: 98b43329fe29d5849aceb81f4bb77198, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1120,6 +1136,10 @@ PrefabInstance:
     - target: {fileID: 468562, guid: a68fc90b4e0a93d488a4c9456b8f7c32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424298, guid: a68fc90b4e0a93d488a4c9456b8f7c32, type: 3}
+      propertyPath: m_Constraints
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 9599554, guid: a68fc90b4e0a93d488a4c9456b8f7c32, type: 3}
       propertyPath: m_Enabled
@@ -1786,6 +1806,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hang_Saw_0_0
       objectReference: {fileID: 0}
+    - target: {fileID: 6174996932968700220, guid: 38e3a2e04c0f2a24aa5f348c0d75d5a3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174577096577480761, guid: 38e3a2e04c0f2a24aa5f348c0d75d5a3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1885,6 +1913,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &797769013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 797769015}
+  - component: {fileID: 797769014}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &797769014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797769013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918c4f7f6e84b1547a3a5ed418fd942f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &797769015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797769013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 927, y: 77.96904, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &804876078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 118130, guid: f8c8d905a2a74f14aae196f66d66e786, type: 3}
@@ -2683,6 +2755,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2752323236868173986, guid: 2681ddb1fe40e924697f8d879cd93e09, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4062376180558846241, guid: 2681ddb1fe40e924697f8d879cd93e09, type: 3}
       propertyPath: m_Name
       value: Hang_Saw_3_0
@@ -2983,3 +3059,4 @@ SceneRoots:
   - {fileID: 1675679991}
   - {fileID: 660804867}
   - {fileID: 7824509714824310755}
+  - {fileID: 797769015}
