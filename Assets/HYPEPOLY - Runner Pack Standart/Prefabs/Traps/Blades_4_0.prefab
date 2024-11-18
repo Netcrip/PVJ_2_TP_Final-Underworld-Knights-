@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 7054397487723176632}
   - component: {fileID: 5764900754383499701}
   - component: {fileID: 3961815076494957779}
+  - component: {fileID: 1470009981233834833}
   m_Layer: 0
   m_Name: Blades
   m_TagString: Untagged
@@ -212,6 +213,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5106816, y: 0.106080055, z: 1.3146603}
   m_Center: {x: 0.77234507, y: 2.1998596, z: 0.0000014007092}
+--- !u!114 &1470009981233834833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3961815076494957776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8365bd21fcf2d804f8f4f28e80b7c236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &7923554551056472158
 GameObject:
   m_ObjectHideFlags: 0
