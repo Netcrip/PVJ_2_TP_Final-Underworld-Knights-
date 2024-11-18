@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour
             if(avatarSelection==null)
                 playerHealth=0;
                 avatarSelection="KnightB";
+
             Destroy(this);
         }
         else{
@@ -35,7 +36,7 @@ public class PlayerManager : MonoBehaviour
     {
         healthInstance = Health;
         healthInstance.onHealthchange += SetHealth;
-        healthInstance.onDead += DoOnUnsuscribe;
+        healthInstance.onDead += OnPlayerDead;
         healthInstance.onUnsuscribe += DoOnUnsuscribe;
     }
 
@@ -45,13 +46,20 @@ public class PlayerManager : MonoBehaviour
     }
     private void DoOnUnsuscribe(){
         healthInstance.onHealthchange -= SetHealth;
-        healthInstance.onDead -= DoOnUnsuscribe;
+        healthInstance.onDead -= OnPlayerDead;
         healthInstance.onUnsuscribe -= DoOnUnsuscribe;
     }
 
     public void InitialHealth(float health, float maxHealth){
         playerHealth = health;
         playerMaxHealth= maxHealth;
+    }
+
+    private void OnPlayerDead(){
+        healthInstance.onHealthchange -= SetHealth;
+        healthInstance.onDead -= OnPlayerDead;
+        healthInstance.onUnsuscribe -= DoOnUnsuscribe;
+        GameManager.Instance.LoadScene("Game Over");
     }
 
     

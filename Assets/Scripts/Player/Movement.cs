@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 
     [RequireComponent(typeof(PlayerInput))]
@@ -30,6 +30,9 @@
   
         [SerializeField] private Vector3 currentRotation;
 
+        
+        PlayerSFX playerSFX;
+        Vector3 move;
 
         private void Start()
         {
@@ -40,6 +43,7 @@
             currentRotation= _characterController.transform.eulerAngles;
             _playerStamina = GetComponent<PlayerStamina>();
             speed = _maxSpeed;
+            playerSFX = GetComponent<PlayerSFX>();
 
         }
 
@@ -82,10 +86,14 @@
             {
                 moveDirection = new Vector3(x, 0, y);
                 moveDirection = transform.TransformDirection(moveDirection.normalized)*_maxSpeed;
+                
+
+                    
 
                 if (_playerInput.JumpInput)
                 {
                     moveDirection.y = _jumpSpeed;
+                    playerSFX.playSFX("jump");
                     _animator.SetTrigger("Jump");
                 }
                     
@@ -94,13 +102,21 @@
             moveDirection.y -= _gravity * Time.deltaTime;
             _characterController.Move(moveDirection * Time.deltaTime);
 
-
+            move=moveDirection;
             
-            if(_maxSpeed > speed) {
-                _animator.SetFloat("InputY", y*2);
+            if(_maxSpeed > speed) 
+            {
+                _animator.SetFloat("InputY", y*2); 
+                move.y=0;
+                playerSFX.playSFX(move.sqrMagnitude > 0.2f ? "dash" : "stomMove");
             }
-            else{}
+            else
+            {
                 _animator.SetFloat("InputY", y);
+                move.y=0;
+                playerSFX.playSFX(move.sqrMagnitude > 0.2f ? "move" : "stomMove");
+            }
+                
             _animator.SetFloat("InputX", x);
             if(x!=0 || y!=0)
             _animator.SetBool("IsInAir", !grounded);
@@ -136,6 +152,7 @@
 
             _animator.SetFloat("InputX", lastMovementInput.x);
             _animator.SetFloat("InputY", lastMovementInput.y);
+            
             
         }
 

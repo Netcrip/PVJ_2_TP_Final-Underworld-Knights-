@@ -5,6 +5,9 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static GameManager Instance {get; private set;}
+
+    public EnemyHealth HealthInstance => healthInstance;
+    private EnemyHealth healthInstance;
    
     //public Vector2 _dungeonSize {get; private set;}
     public Vector3 respawn{get;private set;}
@@ -26,5 +29,14 @@ public class GameManager : MonoBehaviour
     }
     public void SetRespanw(Vector3 position){
         respawn = position;
+    }
+    public void Finalboss(EnemyHealth enemyHealth){
+        healthInstance = enemyHealth;
+        healthInstance.onDead+= DoOnDeadBoss;
+    }
+
+    private void DoOnDeadBoss(){
+        healthInstance.onDead-= DoOnDeadBoss;
+        LoadScene("Victory");
     }
 }

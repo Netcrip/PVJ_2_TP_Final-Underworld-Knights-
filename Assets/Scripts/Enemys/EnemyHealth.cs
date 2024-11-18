@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyHealth : MonoBehaviour, IDamagable
 {
@@ -20,12 +21,14 @@ public class EnemyHealth : MonoBehaviour, IDamagable
     [SerializeField] GameObject Lightings;
     [SerializeField] GameObject LightingsTransform;
 
+     public Action onDead;
     void Awake()
     {
         health = _maxHealth;
         anim = GetComponent<Animator>();
         healthBar = GetComponentInChildren<HealthBarManager>();
         enemyMove = GetComponent<EnemyMove>();
+        GameManager.Instance.Finalboss(this);
     }
 
     // Update is called once per frame
@@ -56,6 +59,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
         {
             anim.SetBool("Die", true);
             isAlive = false;
+            onDead?.Invoke();
             Invoke(nameof(DestroyEnemy), 4f);
         }
     }
