@@ -31,7 +31,6 @@
         [SerializeField] private Vector3 currentRotation;
 
 
-       
         private void Start()
         {
             _animator = GetComponent<Animator>();
@@ -41,6 +40,7 @@
             currentRotation= _characterController.transform.eulerAngles;
             _playerStamina = GetComponent<PlayerStamina>();
             speed = _maxSpeed;
+
         }
 
         private void Update()
@@ -102,6 +102,7 @@
             else{}
                 _animator.SetFloat("InputY", y);
             _animator.SetFloat("InputX", x);
+            if(x!=0 || y!=0)
             _animator.SetBool("IsInAir", !grounded);
         }
        
