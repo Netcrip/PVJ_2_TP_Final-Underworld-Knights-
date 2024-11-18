@@ -31,7 +31,7 @@
         [SerializeField] private Vector3 currentRotation;
 
 
-
+        PlayerSFX playerSFX;
         private void Start()
         {
             _animator = GetComponent<Animator>();
@@ -41,6 +41,7 @@
             currentRotation= _characterController.transform.eulerAngles;
             _playerStamina = GetComponent<PlayerStamina>();
             speed = _maxSpeed;
+            playerSFX=GetComponent<PlayerSFX>();
 
         }
 
@@ -88,6 +89,7 @@
                 {
                     moveDirection.y = _jumpSpeed;
                     _animator.SetTrigger("Jump");
+                    playerSFX.playSFX("jump");
                 }
                     
             }
@@ -99,11 +101,13 @@
             
             if(_maxSpeed > speed) {
                 _animator.SetFloat("InputY", y*2);
+                playerSFX.playSFX("dash");
             }
-            else
-            _animator.SetFloat("InputY", y);
+            else{}
+                _animator.SetFloat("InputY", y);
             _animator.SetFloat("InputX", x);
-            
+            if(x!=0 || y!=0)
+                playerSFX.playSFX("move");
             _animator.SetBool("IsInAir", !grounded);
         }
        
