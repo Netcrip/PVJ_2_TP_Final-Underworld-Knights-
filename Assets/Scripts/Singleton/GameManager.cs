@@ -37,6 +37,6 @@ public class GameManager : MonoBehaviour
 
     private void DoOnDeadBoss(){
         healthInstance.onDead-= DoOnDeadBoss;
-        LoadScene("Victory");
+        LoadScene("MainMenu");
     }
 }

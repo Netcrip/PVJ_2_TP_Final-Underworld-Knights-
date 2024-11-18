@@ -59,7 +59,7 @@ public class PlayerManager : MonoBehaviour
         healthInstance.onHealthchange -= SetHealth;
         healthInstance.onDead -= OnPlayerDead;
         healthInstance.onUnsuscribe -= DoOnUnsuscribe;
-        GameManager.Instance.LoadScene("Game Over");
+        GameManager.Instance.LoadScene("MainMenu");
     }
 
     
