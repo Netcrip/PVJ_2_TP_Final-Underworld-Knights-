@@ -5158,6 +5158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 4933393897561070433, guid: 688312ee304b5564385a91484ca925e0, type: 3}
-  arrowSpeed: 0.5
+  arrowSpeed: 0.3
   shootingDistance: 15
-  shootingSpeed: 2
+  shootingSpeed: 3
