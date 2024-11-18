@@ -1237,8 +1237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: {x: 0, y: 0, z: 0}
   _gravity: 10
-  _jumpSpeed: 7
-  _maxSpeed: 3
+  _jumpSpeed: 8
+  _maxSpeed: 4
   _dashStamina: 10
   rotationSpeed: 4
   currentRotation: {x: 0, y: 0, z: 0}
@@ -1467,8 +1467,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: {x: 0, y: 0, z: 0}
   _gravity: 10
-  _jumpSpeed: 7
-  _maxSpeed: 3
+  _jumpSpeed: 8
+  _maxSpeed: 4
   _dashStamina: 10
   rotationSpeed: 4
   currentRotation: {x: 0, y: 0, z: 0}
@@ -1866,8 +1866,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: {x: 0, y: 0, z: 0}
   _gravity: 10
-  _jumpSpeed: 7
-  _maxSpeed: 3
+  _jumpSpeed: 8
+  _maxSpeed: 4
   _dashStamina: 10
   rotationSpeed: 4
   currentRotation: {x: 0, y: 0, z: 0}
@@ -2116,8 +2116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: {x: 0, y: 0, z: 0}
   _gravity: 10
-  _jumpSpeed: 7
-  _maxSpeed: 3
+  _jumpSpeed: 8
+  _maxSpeed: 4
   _dashStamina: 20
   rotationSpeed: 4
   currentRotation: {x: 0, y: 0, z: 0}
@@ -2346,8 +2346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: {x: 0, y: 0, z: 0}
   _gravity: 10
-  _jumpSpeed: 7
-  _maxSpeed: 3
+  _jumpSpeed: 8
+  _maxSpeed: 4
   _dashStamina: 10
   rotationSpeed: 4
   currentRotation: {x: 0, y: 0, z: 0}

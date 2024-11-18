@@ -4962,7 +4962,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 136368032bbd00349be8d1a8f11169ef, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5160,5 +5159,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 4933393897561070433, guid: 688312ee304b5564385a91484ca925e0, type: 3}
   arrowSpeed: 0.3
-  shootingDistance: 10
-  shootingSpeed: 1
+  shootingDistance: 15
+  shootingSpeed: 3
