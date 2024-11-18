@@ -336,6 +336,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3311599300343038045, guid: f0dba5bfe4f269f4684c2eb92e73ee50, type: 3}
+      propertyPath: _maxHealth
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 6824302065812822231, guid: f0dba5bfe4f269f4684c2eb92e73ee50, type: 3}
       propertyPath: _attackLongRange
       value: 42.2
@@ -2800,7 +2804,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529498253}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 

@@ -17,14 +17,13 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-     
-
+    
     public void LoadScene(string scene){
         SceneManager.LoadScene(scene);
     }
     public void LoadSceneAdition(string scene){
         SceneManager.LoadScene(scene, LoadSceneMode.Additive);
-        }
+    }
     public void SetRespanw(Vector3 position){
         respawn = position;
     }
