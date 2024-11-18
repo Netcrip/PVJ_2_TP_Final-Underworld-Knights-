@@ -5,27 +5,28 @@ using UnityEngine;
 public class PlayerSFX : MonoBehaviour
 {
 
-    [SerializeField] AudioClip _move;
+    [SerializeField] AudioSource _move;
     [SerializeField] AudioClip _attack;
     [SerializeField] AudioClip _attack2;
-    [SerializeField] AudioClip _dash;
+    [SerializeField] AudioClip _Other;
     [SerializeField] AudioClip _die;
     [SerializeField] AudioClip _hit;
     [SerializeField] AudioClip _jump;
     [SerializeField] AudioClip _defence;
 
-    private AudioSource sfx;
+    [SerializeField] private AudioSource sfx;
 
-    private void Start() {
-        sfx= GetComponent<AudioSource>();
-    }
 
     public void playSFX(string state){
 
         switch (state){
             case "move":
-            if(!sfx.isPlaying)
-                sfx.PlayOneShot(_move);
+            if (!_move.isPlaying)
+            {
+                _move.enabled=true;
+                _move.pitch = 1f;
+            }
+            _move.enabled=true;
             break;
             case "attack":
             sfx.PlayOneShot(_attack);
@@ -33,8 +34,12 @@ public class PlayerSFX : MonoBehaviour
             case "attack2":
             sfx.PlayOneShot(_attack2);
             break;
-            case "dash":
-            sfx.PlayOneShot(_dash);
+            case "dash":       
+            if (!_move.isPlaying)
+            {
+                _move.enabled=true;
+                _move.pitch = 1.5f;
+            }
             break;
             case "die":
             sfx.PlayOneShot(_die);
@@ -48,6 +53,13 @@ public class PlayerSFX : MonoBehaviour
             case "defence":
             sfx.PlayOneShot(_defence);
             break;
+            case "stomMove":
+            {
+            if (_move.isPlaying)
+                _move.enabled=false;
+            }
+            break;
+            
         }
     }
 
