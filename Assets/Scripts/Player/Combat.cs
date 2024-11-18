@@ -33,7 +33,7 @@ using UnityEngine;
         [SerializeField]private float delayToAttack=0.7f;
         [SerializeField]private float delayToAttackShield=4f;
 
-
+        PlayerSFX playerSFX;
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -48,6 +48,7 @@ using UnityEngine;
             }
             weapon.enabled=false;
             shield.enabled=false;
+            playerSFX = GetComponent<PlayerSFX>();
         }
 
         private void Update()
@@ -60,12 +61,13 @@ using UnityEngine;
              if(playerInput.AttackInput && delayAttack>=delayToAttack)// !AttackInProgress)
             {
                 Attack();
+                
                 delayAttack=Time.deltaTime;
             }
             else if (playerInput.SpecialAttackInput && delayAttackSheild>=delayToAttackShield)//!AttackInProgress)
             {
                 if(playerStamina.StaminaUse(25f,false)){
-                    SpecialAttack();
+                    SpecialAttack();                   
                     delayAttackSheild=Time.deltaTime;
                 }
                     
@@ -86,6 +88,7 @@ using UnityEngine;
         {
             weapon.enabled=true;
             animator.SetTrigger(attackTriggerName);
+            playerSFX.playSFX("attack");
             Invoke(nameof(DisabledWeponCollider),1f);
         }
 
@@ -93,11 +96,14 @@ using UnityEngine;
         {
             shield.enabled=true;
             animator.SetTrigger(specialAttackTriggerName);
+            playerSFX.playSFX("attack2");
             Invoke(nameof(DisabledShieldCollider),1f);
         }
         private void Block(bool block)
         {
             animator.SetBool(defenceBoolName, block);
+            if(block && !Defence)
+                playerSFX.playSFX("shield");
             CanMove = !block;
             Defence = block;
         }
@@ -110,13 +116,11 @@ using UnityEngine;
             EnemyHealth eHealth = other.GetComponent<EnemyHealth>();
             if (weapon.enabled && eHealth!=null)
             {
-                Debug.Log("El arma ha golpeado al enemigo");
                 eHealth.Damage(10f);
                 weapon.enabled=false;
             }
             else if (shield.enabled && eHealth!=null)
             {                
-                Debug.Log("El escudo ha golpeado al enemigo");
                 eHealth.StunOn();
                 shield.enabled=false;
             }

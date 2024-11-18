@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     public Action onUnsuscribe;
     public Action<float, float> onHealthchange;
 
+    PlayerSFX playerSFX;
     void Awake()
     {
         UiManager.Instance.PlayerHealth(this);
@@ -34,6 +35,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
             _maxHealth=PlayerManager.Instance.playerMaxHealth;
             onHealthchange?.Invoke(health, _maxHealth);
         }
+        playerSFX =GetComponent<PlayerSFX>();
 
     }
     private void Update()
@@ -50,12 +52,14 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         if (combat.Defence)
         {
             anim.SetTrigger("Defence");
+            playerSFX.playSFX("defence");
             health -= (damageAmount/2);
             onHealthchange?.Invoke(health,_maxHealth);
         }
         else
         {
             anim.SetTrigger("Damage");
+            playerSFX.playSFX("hit");
             health -= damageAmount;
             onHealthchange?.Invoke(health, _maxHealth);
         }
@@ -65,6 +69,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         {
             onDead?.Invoke();
             anim.SetTrigger("Die");
+            playerSFX.playSFX("die");
             health = 0;
         }
     }

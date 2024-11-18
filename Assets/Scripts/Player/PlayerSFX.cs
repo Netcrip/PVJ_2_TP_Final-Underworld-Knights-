@@ -18,7 +18,6 @@ public class PlayerSFX : MonoBehaviour
 
 
     public void playSFX(string state){
-
         switch (state){
             case "move":
             if (!_move.isPlaying)
@@ -58,6 +57,9 @@ public class PlayerSFX : MonoBehaviour
             if (_move.isPlaying)
                 _move.enabled=false;
             }
+            break;
+            case "shield":
+            sfx.PlayOneShot(_Other);
             break;
             
         }
