@@ -21,7 +21,7 @@ public class AvatarSelection : MonoBehaviour
     }
 
     public void SelectedToGO(){
-        GameManager.Instance.LoadScene("Variante 1");
+        GameManager.Instance.LoadScene("Variante 2");
     }
     public void AddScreen(){
         GameManager.Instance.LoadSceneAdition("SampleScene");

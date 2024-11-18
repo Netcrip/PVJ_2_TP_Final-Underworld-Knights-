@@ -5,7 +5,6 @@ using UnityEngine;
 public class Trap2 : MonoBehaviour
 {
     public float damage = 10f;
-    //public float pushForce = 5f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,9 +12,7 @@ public class Trap2 : MonoBehaviour
         if (other is CapsuleCollider)
         {
             if (playerHealth != null)
-            {
                 playerHealth.Damage(damage);
-            }
         }
     }
 }
