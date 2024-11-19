@@ -37,6 +37,7 @@ public class AudioManager : MonoBehaviour
     }
     private void SetVolum()
     {
+        //Debug.Log(" datos a:" + volumeData.master + " m " + volumeData.music + " s " + volumeData.sfx);
         audioMixer.SetFloat("Master",Mathf.Log10(volumeData.master)*20);
         audioMixer.SetFloat("Music", Mathf.Log10(volumeData.music) * 20);
         audioMixer.SetFloat("SFX", Mathf.Log10(volumeData.sfx) * 20);

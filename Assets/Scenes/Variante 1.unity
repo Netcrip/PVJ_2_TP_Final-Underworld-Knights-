@@ -1241,13 +1241,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 538271668}
   m_HandleRect: {fileID: 1157612066}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 566938102}
+        m_TargetAssemblyTypeName: CanvasVolume, Assembly-CSharp
+        m_MethodName: VolumeChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &111186276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5290,6 +5302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575563ddf3068b349842d357a0448242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeData:
+    master: 0
+    music: 0
+    sfx: 0
   master: {fileID: 2017209751}
   music: {fileID: 111186275}
   sfx: {fileID: 1042437342}
@@ -9702,7 +9718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175953555039797889, guid: 6c858214059a780458e1313e499913a2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10390,13 +10406,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 820042689}
   m_HandleRect: {fileID: 1022787097}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 566938102}
+        m_TargetAssemblyTypeName: CanvasVolume, Assembly-CSharp
+        m_MethodName: VolumeChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1042437343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13592,6 +13620,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7213728354042327154, guid: 4fd53d0782db7984881e99ef7f9dcab2, type: 3}
   m_PrefabInstance: {fileID: 1383720959}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1399103152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399103153}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1399103153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399103152}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 214.89017, y: -55.35096, z: 15.553444}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1399321132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18574,6 +18633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654266c4bbec86747bcccca31a42f184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: fb34d456078f38a44826791bca6241ee, type: 2}
 --- !u!1001 &1872573089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19980,7 +20040,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2017209752}
   - component: {fileID: 2017209751}
-  - component: {fileID: 2017209753}
   m_Layer: 5
   m_Name: Master
   m_TagString: Untagged
@@ -20032,13 +20091,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1690447473}
   m_HandleRect: {fileID: 1669689689}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 566938102}
+        m_TargetAssemblyTypeName: CanvasVolume, Assembly-CSharp
+        m_MethodName: VolumeChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &2017209752
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20061,21 +20132,6 @@ RectTransform:
   m_AnchoredPosition: {x: 726, y: 454}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2017209753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017209750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575563ddf3068b349842d357a0448242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  master: {fileID: 0}
-  music: {fileID: 0}
-  sfx: {fileID: 0}
 --- !u!1001 &2018027502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21639,4 +21695,5 @@ SceneRoots:
   - {fileID: 1569724154}
   - {fileID: 1043068574}
   - {fileID: 566938106}
+  - {fileID: 1399103153}
   - {fileID: 1863911706}
