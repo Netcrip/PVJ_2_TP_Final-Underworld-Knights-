@@ -6,14 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="752cecd6-acf5-45b7-8e34-092070140a15" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PVJ_2_TP_Final-Underworld-Knights-/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PVJ_2_TP_Final-Underworld-Knights-/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/InventoryCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/InventoryCanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/InventoryCanvas.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/InventoryCanvas.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Inventory/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/InventoryManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Inventory/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/Item.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Inventory/ItemSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/ItemSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RPG Pack/Materials/Bottle_green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RPG Pack/Materials/Bottle_green.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RPG Pack/Prefabs/ItemHP.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RPG Pack/Prefabs/ItemHP.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RPG Pack/Prefabs/ItemMP.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RPG Pack/Prefabs/ItemMP.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BossFight.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BossFight.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Selecction.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Selecction.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Variante 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Variante 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/AvatarSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AvatarSelection.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +20,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Inventory/MiniInventoryManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -101,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1731978038819</updated>
       <workItem from="1731978041251" duration="1026000" />
-      <workItem from="1732021051034" duration="5522000" />
+      <workItem from="1732021051034" duration="8904000" />
     </task>
     <servers />
   </component>

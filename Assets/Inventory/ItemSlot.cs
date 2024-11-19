@@ -16,7 +16,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private int maxNumberOfItems = 10;
     [SerializeField] private TMP_Text quantityText;
-    [SerializeField] private Image itemImage;
+    [SerializeField] internal Image itemImage;
 
     public TMP_Text ItemDescriptionNameText;
     public TMP_Text ItemDescriptionText;
@@ -79,7 +79,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         UpdateQuantityText();
     }
 
-    private void UpdateQuantityText()
+    internal void UpdateQuantityText()
     {
         quantityText.text = quantity > 1 ? quantity.ToString() : "";
         quantityText.enabled = quantity > 0;

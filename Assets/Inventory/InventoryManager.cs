@@ -11,6 +11,13 @@ public class InventoryManager : MonoBehaviour
     public ItemSlot[] itemSlot;
     private PlayerHealth _playerHealth;
 
+    
+    public GameObject miniInventoryPanel; // Panel del mini inventario que contendrá los 3 slots
+    public ItemSlot miniSlotSmallPotion;
+    public ItemSlot miniSlotMidPotion;
+    public ItemSlot miniSlotBigPotion;
+    
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -37,6 +44,7 @@ public class InventoryManager : MonoBehaviour
             Time.timeScale = menuActivated ? 0 : 1;
         }
         CheckAndUsePotion();
+        UpdateMiniInventory(); ///////
 
     }
 
@@ -106,10 +114,46 @@ public class InventoryManager : MonoBehaviour
                 {
                     _playerHealth.Heal(slot.healAmount);
                 }
-
                 slot.RemoveOneItem();
                 return;
             }
         }
     }
+    
+    
+    private void UpdateMiniInventory()
+    {
+        UpdateMiniSlot(miniSlotSmallPotion, "small_pot_10");
+        UpdateMiniSlot(miniSlotMidPotion, "mid_pot_20");
+        UpdateMiniSlot(miniSlotBigPotion, "big_pot_30");
+    }
+
+    private void UpdateMiniSlot(ItemSlot slot, string potionID)
+    {
+        foreach (ItemSlot inventorySlot in itemSlot)
+        {
+            if (inventorySlot.uniqueID == potionID)
+            {
+                // UPDATE DE INVENTA
+                slot.itemName = inventorySlot.itemName;
+                slot.itemSprite = inventorySlot.itemSprite;
+                slot.itemDescription = inventorySlot.itemDescription;
+                slot.quantity = inventorySlot.quantity;
+                slot.itemImage.sprite = inventorySlot.itemSprite;
+                slot.UpdateQuantityText();
+                return;
+            }
+        }
+
+        // LIMPIA EL LUGAR
+        slot.itemName = "";
+        slot.itemSprite = slot.emptySprite;
+        slot.itemDescription = "";
+        slot.quantity = 0;
+        slot.itemImage.sprite = slot.emptySprite;
+        slot.UpdateQuantityText();
+    }
+    
+    
+    
 }
