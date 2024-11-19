@@ -130,7 +130,7 @@ public class EnemyCombat : MonoBehaviour
                 //_sfx.PlayOneShot(_attackSfx);                
                 anim.SetTrigger("SpinAttack");
                 enemySFX.PlaySFX("attack2");
-                Invoke(nameof(SpinAttack),1f);
+            
                 alreadyAttacked = true;
                 spinAttack=true;
                 Invoke(nameof(ResetAttack), _timeBetweenAttacks+2f);
@@ -152,15 +152,11 @@ public class EnemyCombat : MonoBehaviour
             //Ray ray = new Ray(transform.position, transform.forward);
             
 
-
         }
 
     }
 
-    private void SpinAttack()
-    {
-        enemySFX.PlaySFX("attack2");
-    }
+
 
     bool IsFron()
     {
