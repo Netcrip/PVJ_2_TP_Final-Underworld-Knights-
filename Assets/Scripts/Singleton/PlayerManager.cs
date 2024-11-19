@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
      public float playerHealth {get;private set;} 
      public float playerMaxHealth {get;private set;}
 
-     private float levelHealth;
+    [SerializeField] private float levelHealth;
 
 
     private void Awake(){
@@ -40,15 +40,18 @@ public class PlayerManager : MonoBehaviour
         healthInstance.onHealthchange += SetHealth;
         healthInstance.onDead += OnPlayerDead;
         healthInstance.onUnsuscribe += DoOnUnsuscribe;
-        if(playerHealth>0){
+        if(playerHealth<=0)
+            playerHealth=levelHealth;
+        else
             levelHealth=playerHealth;
-        }
     }
 
-    private void SetHealth(float healt,float maxHealt){
-        playerHealth=healt;
+    private void SetHealth(float health,float maxHealt){
+        playerHealth=health;
         playerMaxHealth=maxHealt;
-        levelHealth=healt;
+        if(levelHealth==0)
+            levelHealth=health;
+        
     }
     private void DoOnUnsuscribe(){
         healthInstance.onHealthchange -= SetHealth;
@@ -66,11 +69,10 @@ public class PlayerManager : MonoBehaviour
         healthInstance.onDead -= OnPlayerDead;
         healthInstance.onUnsuscribe -= DoOnUnsuscribe;
         playerHealth=levelHealth;
-        GameManager.Instance.LoadScene("Game Over");
+        GameManager.Instance.LoadScene(GameManager.Instance.lastLevel);
     }
 
     
-
 
     
 }
