@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="752cecd6-acf5-45b7-8e34-092070140a15" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PVJ_2_TP_Final-Underworld-Knights-/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PVJ_2_TP_Final-Underworld-Knights-/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Inventory/InventoryCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/InventoryCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Inventory/InventoryCanvas.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/InventoryCanvas.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Inventory/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/InventoryManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Inventory/ItemSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/ItemSlot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Variante 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Variante 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/AvatarSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AvatarSelection.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
