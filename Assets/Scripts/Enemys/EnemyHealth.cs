@@ -22,6 +22,8 @@ public class EnemyHealth : MonoBehaviour, IDamagable
     [SerializeField] GameObject LightingsTransform;
 
      public Action onDead;
+
+    EnemySFX enemySFX;
     void Awake()
     {
         health = _maxHealth;
@@ -29,6 +31,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
         healthBar = GetComponentInChildren<HealthBarManager>();
         enemyMove = GetComponent<EnemyMove>();
         GameManager.Instance.Finalboss(this);
+        enemySFX = GetComponentInChildren<EnemySFX>();
     }
 
     // Update is called once per frame
@@ -45,9 +48,12 @@ public class EnemyHealth : MonoBehaviour, IDamagable
     {
         if (isAlive)
         {
-            //_sfx.PlayOneShot(_hitSfx);
+
+            enemySFX.PlaySFX("hit");
+
             health -= damageAmount;
             healthBar.UpdateHealtBar(_maxHealth, health);
+
         }
     }
 
@@ -60,6 +66,9 @@ public class EnemyHealth : MonoBehaviour, IDamagable
             anim.SetBool("Die", true);
             isAlive = false;
             onDead?.Invoke();
+
+            enemySFX.PlaySFX("die");
+
             Invoke(nameof(DestroyEnemy), 4f);
         }
     }

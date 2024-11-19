@@ -64,8 +64,10 @@ using UnityEngine;
                     Dash();
                     Move();
                 }
-                
-            }
+                else
+                 playerSFX.PlaySFX("stomMove");
+
+        }
         }
 
      
@@ -93,7 +95,7 @@ using UnityEngine;
                 if (_playerInput.JumpInput)
                 {
                     moveDirection.y = _jumpSpeed;
-                    playerSFX.playSFX("jump");
+                    playerSFX.PlaySFX("jump");
                     _animator.SetTrigger("Jump");
                 }
                     
@@ -108,13 +110,13 @@ using UnityEngine;
             {
                 _animator.SetFloat("InputY", y*2); 
                 move.y=0;
-                playerSFX.playSFX(move.sqrMagnitude > 0.2f ? "dash" : "stomMove");
+                playerSFX.PlaySFX(move.sqrMagnitude > 0.2f ? "dash" : "stomMove");
             }
             else
             {
                 _animator.SetFloat("InputY", y);
                 move.y=0;
-                playerSFX.playSFX(move.sqrMagnitude > 0.2f ? "move" : "stomMove");
+                playerSFX.PlaySFX(move.sqrMagnitude > 0.2f ? "move" : "stomMove");
             }
                 
             _animator.SetFloat("InputX", x);

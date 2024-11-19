@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float damageAttack;
     [SerializeField] private GameObject explosion;
-    [SerializeField] private AudioClip rockSFX;
+    [SerializeField] private AudioClip weaponSFX;
     [SerializeField] private AudioSource sfx;
     private bool oneExplosion=false;
 
@@ -29,7 +29,7 @@ public class Weapon : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //sfx.PlayOneShot(rockSFX);
+        sfx.PlayOneShot(weaponSFX);
         Collider[] collidedObjects = Physics.OverlapSphere(transform.position, explosionRadius, layerMask);
         if(collidedObjects.Length > 0) { 
              foreach (Collider collidedObject in collidedObjects)

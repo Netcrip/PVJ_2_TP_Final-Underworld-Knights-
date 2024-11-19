@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public EnemyHealth HealthInstance => healthInstance;
     private EnemyHealth healthInstance;
+    public string lastLevel {get; private set;}
    
     //public Vector2 _dungeonSize {get; private set;}
     public Vector3 respawn{get;private set;}
@@ -19,13 +20,27 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-    }
-    
-    public void LoadScene(string scene){
+    } 
+
+    public void LoadScene(string scene, bool level=true){
+        if(level){
+            lastLevel=scene;
+        }
         SceneManager.LoadScene(scene);
     }
     public void LoadSceneAdition(string scene){
         SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+
+        Time.timeScale = 0f;
+    }
+    public void UnloadSceneAdition(string scene)
+    {
+        if (SceneManager.GetSceneByName(scene).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(scene);
+            Time.timeScale = 1f; // Reanuda el tiempo si estaba pausado
+        }
+        
     }
     public void SetRespanw(Vector3 position){
         respawn = position;
@@ -37,6 +52,6 @@ public class GameManager : MonoBehaviour
 
     private void DoOnDeadBoss(){
         healthInstance.onDead-= DoOnDeadBoss;
-        LoadScene("MainMenu");
+        LoadScene("Victory");
     }
 }
