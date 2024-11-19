@@ -30,7 +30,18 @@ public class GameManager : MonoBehaviour
     }
     public void LoadSceneAdition(string scene){
         SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+
+        Time.timeScale = 0f;
+    }
+    public void UnloadSceneAdition(string scene)
+    {
+        if (SceneManager.GetSceneByName(scene).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(scene);
+            Time.timeScale = 1f; // Reanuda el tiempo si estaba pausado
         }
+        
+    }
     public void SetRespanw(Vector3 position){
         respawn = position;
     }
