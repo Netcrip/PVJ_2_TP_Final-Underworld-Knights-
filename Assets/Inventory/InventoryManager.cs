@@ -21,55 +21,44 @@ public class InventoryManager : MonoBehaviour
             Time.timeScale = 1;
             InventoryMenu.SetActive(false);
             menuActivated = false;
+            //desactivar mixxer
         }
         else if (Input.GetKeyDown(KeyCode.I) && !menuActivated)
         {
             InventoryMenu.SetActive(true);
             menuActivated = true;
             Time.timeScale = 0;
+            //falta activar mixxer
         }
     }
-
-    //public void AddItem(string itemName, int quantity, Sprite itemSprite)
-    //{
-    //    Debug.Log("itemName = " + itemName + "quantity = " + quantity + "itemSprite = " + itemSprite);
-    //    for (int i = 0; i < itemSlot.Length; i++)
-    //    {
-    //        if (itemSlot[i].isFull == false)
-    //        {
-    //            itemSlot[i].AddItem(itemName, quantity, itemSprite);
-    //            return;
-    //        }
-    //    }
-    //}
-    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
+    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
-        // Verificar si el item ya está en el inventario
-        //for (int i = 0; i < itemSlot.Length; i++)
-        //{
-            //if (itemSlot[i].isFull && itemSlot[i].itemName == itemName)
-            //{
-                // Si el item ya está, solo aumenta la cantidad
-               // itemSlot[i].quantity += quantity;
-             //   itemSlot[i].UpdateQuantityText(); // Asegúrate de tener un método para actualizar el texto si es necesario
-           //     Debug.Log("Cantidad actualizada: " + itemSlot[i].quantity + " de " + itemName);
-         //       return;
-       //     }
-     //   }
+         //Verificar si el item ya está en el inventario
+        for (int i = 0; i < itemSlot.Length; i++)
+        {
+            if (itemSlot[i].itemName == itemName)
+            {
+                
+
+               // Si el item ya está, solo aumenta la cantidad
+                itemSlot[i].quantity = itemSlot[i].quantity + 1;
+                itemSlot[i].UpdateQuantityText(); // Asegúrate de tener un método para actualizar el texto si es necesario
+                Debug.Log("Cantidad actualizada: " + itemSlot[i].quantity + " de " + itemName);
+                return;
+            } 
+            Debug.Log("For" + itemSlot[i].quantity);
+        }
+        
 
         // Si no se encuentra el item, agregarlo a un nuevo slot
         for (int i = 0; i < itemSlot.Length; i++)
         {
-            if (itemSlot[i].isFull == false && itemSlot[i].name == name || itemSlot[i].quantity == 0)
+            if (itemSlot[i].name != name)
             {
-                int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
-                if (leftOverItems > 0)
-                    leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription);
-                               
-                return leftOverItems;
+                itemSlot[i].AddItem(itemName, 1 , itemSprite, itemDescription);
+                return;               
             }
         }
-        return quantity;
     }
 
     public void DeselectAllSlots()

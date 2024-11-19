@@ -19,6 +19,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public Sprite emptySprite;
 
     [SerializeField] private int maxNumberOfItems;
+    private PlayerHealth _playerHealth;
     
     
     // ITEM SLOT
@@ -42,13 +43,15 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
+        _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
-    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
+    
+    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
         //Verificar si ya hay item
-        if (isFull) 
-            return quantity;
+    //    if (isFull) 
+          //  return quantity;
         
         //UPDATE NOMBRE
         this.itemName = itemName;
@@ -70,7 +73,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         
             int extraItems = this.quantity - maxNumberOfItems;
             this.quantity = maxNumberOfItems;
-            return extraItems;
+            //return extraItems;
 
         }
             
@@ -79,22 +82,22 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         quantityText.enabled = true;
         //itemImage.sprite = itemSprite;
          
-        return 0;
+        //return 0;
         
     }
 
-   // public void UpdateQuantityText()
-    //{
-      //  if (quantity > 1) // Mostrar solo si hay más de una unidad
-       // {
-        //    quantityText.text = quantity.ToString();
-         //   quantityText.enabled = true;
-       // }
-       // else
-       // {
-       //     quantityText.enabled = false;
-       // }
-    //}
+    public void UpdateQuantityText()
+    {
+        if (quantity > 1) // Mostrar solo si hay más de una unidad
+        {
+            quantityText.text = quantity.ToString();
+            quantityText.enabled = true;
+        }
+        else
+        {
+            quantityText.enabled = false;
+        }
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -120,8 +123,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         if (itemDescriptionImage.sprite == null)
             itemDescriptionImage.sprite = emptySprite;
     }
+    
     public void OnRightClick()
     {
-        
+        //quantity -= 1;
+        _playerHealth.Heal(10);
     }
 }

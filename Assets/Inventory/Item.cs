@@ -29,11 +29,11 @@ public class Item : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            int leftOverItems = inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
-            if (leftOverItems <= 0)
+            inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
+            //if (leftOverItems <= 0)
                 Destroy(gameObject);
-            else
-                quantity = leftOverItems;
+            //else
+            //    quantity = leftOverItems;
         }
     }
 }
