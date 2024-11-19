@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1599322409160350311}
   - component: {fileID: 5509268347130925131}
   m_Layer: 0
-  m_Name: Item
+  m_Name: ItemHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,8 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: PotionHP
-  quantity: 0
+  quantity: 1
   sprite: {fileID: 21300000, guid: 436981158f7c6e84a9fa2154f7cb7928, type: 3}
+  thumbnail: {fileID: 0}
+  itemDescription: "Prueba de descripci\xF3n"
 --- !u!65 &1599322409160350311
 BoxCollider:
   m_ObjectHideFlags: 0
