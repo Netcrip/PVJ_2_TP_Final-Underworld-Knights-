@@ -88,7 +88,7 @@ using UnityEngine;
         {
             weapon.enabled=true;
             animator.SetTrigger(attackTriggerName);
-            playerSFX.playSFX("attack");
+            playerSFX.PlaySFX("attack");
             Invoke(nameof(DisabledWeponCollider),1f);
         }
 
@@ -96,14 +96,14 @@ using UnityEngine;
         {
             shield.enabled=true;
             animator.SetTrigger(specialAttackTriggerName);
-            playerSFX.playSFX("attack2");
+            playerSFX.PlaySFX("attack2");
             Invoke(nameof(DisabledShieldCollider),1f);
         }
         private void Block(bool block)
         {
             animator.SetBool(defenceBoolName, block);
             if(block && !Defence)
-                playerSFX.playSFX("shield");
+                playerSFX.PlaySFX("shield");
             CanMove = !block;
             Defence = block;
         }

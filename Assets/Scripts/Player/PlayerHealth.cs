@@ -52,14 +52,14 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         if (combat.Defence)
         {
             anim.SetTrigger("Defence");
-            playerSFX.playSFX("defence");
+            playerSFX.PlaySFX("defence");
             health -= (damageAmount/2);
             onHealthchange?.Invoke(health,_maxHealth);
         }
         else
         {
             anim.SetTrigger("Damage");
-            playerSFX.playSFX("hit");
+            playerSFX.PlaySFX("hit");
             health -= damageAmount;
             onHealthchange?.Invoke(health, _maxHealth);
         }
@@ -69,7 +69,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         {
             onDead?.Invoke();
             anim.SetTrigger("Die");
-            playerSFX.playSFX("die");
+            playerSFX.PlaySFX("die");
             health = 0;
         }
     }

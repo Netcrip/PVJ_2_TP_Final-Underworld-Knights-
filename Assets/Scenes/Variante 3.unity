@@ -917,9 +917,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4755472501772642298, guid: 90271117ca8330c43a11d62e06944618, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4928431548451535812, guid: 90271117ca8330c43a11d62e06944618, type: 3}
       propertyPath: _startDelay
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6007193843894546992, guid: 90271117ca8330c43a11d62e06944618, type: 3}
+      propertyPath: MaxDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6298819495241699821, guid: 90271117ca8330c43a11d62e06944618, type: 3}
       propertyPath: m_Name
@@ -4186,10 +4194,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 744434607}
     m_Modifications:
     - target: {fileID: 350171770745803267, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
-      propertyPath: m_RootOrder
-      value: 58
-      objectReference: {fileID: 0}
-    - target: {fileID: 350171770745803267, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.190036
       objectReference: {fileID: 0}
@@ -4228,10 +4232,6 @@ PrefabInstance:
     - target: {fileID: 350171770745803267, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4784356929726136275, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
-      propertyPath: _startDelay
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5866461691535349242, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
       propertyPath: m_Name
@@ -6184,9 +6184,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4755472501772642298, guid: 90271117ca8330c43a11d62e06944618, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4928431548451535812, guid: 90271117ca8330c43a11d62e06944618, type: 3}
       propertyPath: _startDelay
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6007193843894546992, guid: 90271117ca8330c43a11d62e06944618, type: 3}
+      propertyPath: MaxDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6298819495241699821, guid: 90271117ca8330c43a11d62e06944618, type: 3}
       propertyPath: m_Name
@@ -7030,9 +7038,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5187839103919645677, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5866461691535349242, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
       propertyPath: m_Name
       value: Pressure_0_0 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151332013102495271, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
+      propertyPath: MaxDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6648867189753962964, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
       propertyPath: m_Enabled
@@ -8961,14 +8977,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4387057831457185295, guid: 90271117ca8330c43a11d62e06944618, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387057831457185295, guid: 90271117ca8330c43a11d62e06944618, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6298819495241699821, guid: 90271117ca8330c43a11d62e06944618, type: 3}
       propertyPath: m_Name
       value: PushPressure (4)
@@ -9603,9 +9611,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4755472501772642298, guid: 90271117ca8330c43a11d62e06944618, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4928431548451535812, guid: 90271117ca8330c43a11d62e06944618, type: 3}
       propertyPath: _startDelay
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6007193843894546992, guid: 90271117ca8330c43a11d62e06944618, type: 3}
+      propertyPath: MaxDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6298819495241699821, guid: 90271117ca8330c43a11d62e06944618, type: 3}
       propertyPath: m_Name
@@ -10295,10 +10311,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 744434607}
     m_Modifications:
     - target: {fileID: 350171770745803267, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
-      propertyPath: m_RootOrder
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 350171770745803267, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.32000017
       objectReference: {fileID: 0}
@@ -10365,10 +10377,6 @@ PrefabInstance:
       value: FireDispenser_2_0 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 6558618261406167975, guid: 84a3da2bbc152824298f593b9cd502da, type: 3}
-      propertyPath: m_RootOrder
-      value: 66
-      objectReference: {fileID: 0}
-    - target: {fileID: 6558618261406167975, guid: 84a3da2bbc152824298f593b9cd502da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.970036
       objectReference: {fileID: 0}
@@ -10407,10 +10415,6 @@ PrefabInstance:
     - target: {fileID: 6558618261406167975, guid: 84a3da2bbc152824298f593b9cd502da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8889441140223599035, guid: 84a3da2bbc152824298f593b9cd502da, type: 3}
-      propertyPath: m_TagString
-      value: Trap
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14383,10 +14387,6 @@ PrefabInstance:
       value: FireDispenser_2_0 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6558618261406167975, guid: 84a3da2bbc152824298f593b9cd502da, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6558618261406167975, guid: 84a3da2bbc152824298f593b9cd502da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.670036
       objectReference: {fileID: 0}
@@ -14623,10 +14623,6 @@ PrefabInstance:
     - target: {fileID: 206095174196352532, guid: 90271117ca8330c43a11d62e06944618, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 707100328885522543, guid: 90271117ca8330c43a11d62e06944618, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6298819495241699821, guid: 90271117ca8330c43a11d62e06944618, type: 3}
       propertyPath: m_Name

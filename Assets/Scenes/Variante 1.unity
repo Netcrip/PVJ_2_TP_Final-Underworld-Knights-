@@ -9225,10 +9225,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 910865420467959905, guid: 6c858214059a780458e1313e499913a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1727769881135183209, guid: 6c858214059a780458e1313e499913a2, type: 3}
       propertyPath: m_Name
       value: Avatars

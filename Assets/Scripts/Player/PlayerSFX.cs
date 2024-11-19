@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSFX : MonoBehaviour
+public class PlayerSFX : MonoBehaviour, IPlaySFX
 {
 
     [SerializeField] AudioSource _move;
@@ -17,7 +17,7 @@ public class PlayerSFX : MonoBehaviour
     [SerializeField] private AudioSource sfx;
 
 
-    public void playSFX(string state){
+    public void PlaySFX(string state){
         switch (state){
             case "move":
             if (!_move.isPlaying)
