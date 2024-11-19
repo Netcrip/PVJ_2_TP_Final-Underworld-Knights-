@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class InventoryManager : MonoBehaviour
 {
     public GameObject InventoryMenu;
-
     private bool menuActivated;
-
     public ItemSlot[] itemSlot;
-    
- 
+    private PlayerHealth _playerHealth;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I) && menuActivated)
@@ -21,43 +21,73 @@ public class InventoryManager : MonoBehaviour
             Time.timeScale = 1;
             InventoryMenu.SetActive(false);
             menuActivated = false;
-            //desactivar mixxer
         }
         else if (Input.GetKeyDown(KeyCode.I) && !menuActivated)
         {
             InventoryMenu.SetActive(true);
             menuActivated = true;
             Time.timeScale = 0;
-            //falta activar mixxer
         }
     }
+
     public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
-         //Verificar si el item ya está en el inventario
         for (int i = 0; i < itemSlot.Length; i++)
         {
             if (itemSlot[i].itemName == itemName)
             {
-                
-
-               // Si el item ya está, solo aumenta la cantidad
-                itemSlot[i].quantity = itemSlot[i].quantity + 1;
-                itemSlot[i].UpdateQuantityText(); // Asegúrate de tener un método para actualizar el texto si es necesario
+                itemSlot[i].quantity += quantity;
+                itemSlot[i].UpdateQuantityText();
                 Debug.Log("Cantidad actualizada: " + itemSlot[i].quantity + " de " + itemName);
                 return;
-            } 
+            }
             Debug.Log("For" + itemSlot[i].quantity);
         }
-        
 
-        // Si no se encuentra el item, agregarlo a un nuevo slot
         for (int i = 0; i < itemSlot.Length; i++)
         {
-            if (itemSlot[i].name != name)
+            if (!itemSlot[i].isFull)
             {
-                itemSlot[i].AddItem(itemName, 1 , itemSprite, itemDescription);
-                return;               
+                itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
+                return;
             }
+        }
+    }
+
+    public void UseSelectedItem(ItemSlot slot)
+    {
+        if (slot != null)
+        {
+            if (slot.thisItemSelected && slot.quantity > 0)
+            {
+                if (_playerHealth == null)
+                {
+                    _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+                }
+                _playerHealth.Heal(10);
+
+                slot.quantity--;
+                slot.UpdateQuantityText();
+
+                if (slot.quantity <= 0)
+                {
+                    slot.isFull = false;
+                    slot.itemName = "";
+                    slot.itemDescription = "";
+                    if (slot.ItemImage != null)
+                    {
+                        slot.ItemImage.sprite = slot.emptySprite;
+                    }
+                    if (slot.QuantityText != null)
+                    {
+                        slot.QuantityText.enabled = false;
+                    }
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("ItemSlot is null");
         }
     }
 
