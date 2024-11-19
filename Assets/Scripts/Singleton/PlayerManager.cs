@@ -13,6 +13,8 @@ public class PlayerManager : MonoBehaviour
      public float playerHealth {get;private set;} 
      public float playerMaxHealth {get;private set;}
 
+     private float levelHealth;
+
 
     private void Awake(){
         if(Instance != null && Instance!= this){
@@ -38,11 +40,15 @@ public class PlayerManager : MonoBehaviour
         healthInstance.onHealthchange += SetHealth;
         healthInstance.onDead += OnPlayerDead;
         healthInstance.onUnsuscribe += DoOnUnsuscribe;
+        if(playerHealth>0){
+            levelHealth=playerHealth;
+        }
     }
 
     private void SetHealth(float healt,float maxHealt){
         playerHealth=healt;
         playerMaxHealth=maxHealt;
+        levelHealth=healt;
     }
     private void DoOnUnsuscribe(){
         healthInstance.onHealthchange -= SetHealth;
@@ -59,6 +65,7 @@ public class PlayerManager : MonoBehaviour
         healthInstance.onHealthchange -= SetHealth;
         healthInstance.onDead -= OnPlayerDead;
         healthInstance.onUnsuscribe -= DoOnUnsuscribe;
+        playerHealth=levelHealth;
         GameManager.Instance.LoadScene("Game Over");
     }
 

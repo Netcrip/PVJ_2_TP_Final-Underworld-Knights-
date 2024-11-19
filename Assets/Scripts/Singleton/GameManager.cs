@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public EnemyHealth HealthInstance => healthInstance;
     private EnemyHealth healthInstance;
+    private string lastLevel;
    
     //public Vector2 _dungeonSize {get; private set;}
     public Vector3 respawn{get;private set;}
@@ -20,8 +21,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-     
-
+    
     public void LoadScene(string scene){
         SceneManager.LoadScene(scene);
     }
