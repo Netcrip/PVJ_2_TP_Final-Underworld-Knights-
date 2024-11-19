@@ -4,51 +4,59 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager Instance { get; private set; }
+
     public GameObject InventoryMenu;
     private bool menuActivated;
     public ItemSlot[] itemSlot;
     private PlayerHealth _playerHealth;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
-        _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        // _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I) && menuActivated)
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            Time.timeScale = 1;
-            InventoryMenu.SetActive(false);
-            menuActivated = false;
+            menuActivated = !menuActivated;
+            InventoryMenu.SetActive(menuActivated);
+            Time.timeScale = menuActivated ? 0 : 1;
         }
-        else if (Input.GetKeyDown(KeyCode.I) && !menuActivated)
-        {
-            InventoryMenu.SetActive(true);
-            menuActivated = true;
-            Time.timeScale = 0;
-        }
+        CheckAndUsePotion();
+
     }
 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
+    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, int healAmount, string uniqueID)
     {
         for (int i = 0; i < itemSlot.Length; i++)
         {
-            if (itemSlot[i].itemName == itemName)
+            if (itemSlot[i].IsMatch(itemName, itemDescription, healAmount, uniqueID))
             {
-                itemSlot[i].quantity += quantity;
-                itemSlot[i].UpdateQuantityText();
+                itemSlot[i].AddQuantity(quantity);
                 Debug.Log("Cantidad actualizada: " + itemSlot[i].quantity + " de " + itemName);
                 return;
             }
-            Debug.Log("For" + itemSlot[i].quantity);
         }
 
         for (int i = 0; i < itemSlot.Length; i++)
         {
             if (!itemSlot[i].isFull)
             {
-                itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
+                itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, healAmount, uniqueID);
                 return;
             }
         }
@@ -56,47 +64,52 @@ public class InventoryManager : MonoBehaviour
 
     public void UseSelectedItem(ItemSlot slot)
     {
-        if (slot != null)
+        if (slot != null && slot.thisItemSelected && slot.quantity > 0)
         {
-            if (slot.thisItemSelected && slot.quantity > 0)
-            {
-                if (_playerHealth == null)
-                {
-                    _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-                }
-                _playerHealth.Heal(10);
-
-                slot.quantity--;
-                slot.UpdateQuantityText();
-
-                if (slot.quantity <= 0)
-                {
-                    slot.isFull = false;
-                    slot.itemName = "";
-                    slot.itemDescription = "";
-                    if (slot.ItemImage != null)
-                    {
-                        slot.ItemImage.sprite = slot.emptySprite;
-                    }
-                    if (slot.QuantityText != null)
-                    {
-                        slot.QuantityText.enabled = false;
-                    }
-                }
-            }
-        }
-        else
-        {
-            Debug.LogError("ItemSlot is null");
+            _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>(); // ??
+            _playerHealth.Heal(slot.healAmount);
+            slot.RemoveOneItem();
         }
     }
 
     public void DeselectAllSlots()
     {
-        for (int i = 0; i < itemSlot.Length; i++)
+        foreach (var slot in itemSlot)
         {
-            itemSlot[i].selectedShader.SetActive(false);
-            itemSlot[i].thisItemSelected = false;
+            slot.Deselect();
+        }
+    }
+    private void CheckAndUsePotion()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            UsePotionByID("small_pot_10");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            UsePotionByID("mid_pot_20");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            UsePotionByID("big_pot_30");
+        }
+    }
+
+    private void UsePotionByID(string potionID)
+    {
+        foreach (ItemSlot slot in itemSlot)
+        {
+            if (slot.uniqueID == potionID && slot.quantity > 0)
+            {
+                _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+                if (_playerHealth != null)
+                {
+                    _playerHealth.Heal(slot.healAmount);
+                }
+
+                slot.RemoveOneItem();
+                return;
+            }
         }
     }
 }
