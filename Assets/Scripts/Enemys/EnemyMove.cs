@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(EnemyCombat))]
+[RequireComponent(typeof(EnemySFX))]
 public class EnemyMove : MonoBehaviour
 {
     private NavMeshAgent agent;
@@ -33,6 +34,8 @@ public class EnemyMove : MonoBehaviour
 
     [SerializeField] private AudioSource _moveSfx = null;
 
+    EnemySFX enemySFX;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -41,8 +44,14 @@ public class EnemyMove : MonoBehaviour
         anim = GetComponent<Animator>();
         enemyCombat = GetComponent<EnemyCombat>();
         enemyHealth = GetComponent<EnemyHealth>();
+        enemySFX = GetComponent<EnemySFX>();
 
+        
+    }
 
+    private void Start()
+    {
+        enemySFX.PlaySFX("roar");
     }
 
     // Update is called once per frame
@@ -63,19 +72,21 @@ public class EnemyMove : MonoBehaviour
     private void iddle()
     {
         anim.SetFloat("isMoving", 0f);
-        //_moveSfx.enabled = false; 
+        enemySFX.PlaySFX("idle");
     }
     private void goToRespawn()
     {
         //_moveSfx.enabled = true;
         agent.SetDestination(respawPoint);
         anim.SetFloat("isMoving", 0.5f);
+        enemySFX.PlaySFX("move");
     }
      private void ChasePlayer()
     {
         //_moveSfx.enabled = true;
         agent.SetDestination(player.position);
         anim.SetFloat("isMoving", 0.5f);
+        enemySFX.PlaySFX("move");
     }
 
     private void OnDrawGizmosSelected()

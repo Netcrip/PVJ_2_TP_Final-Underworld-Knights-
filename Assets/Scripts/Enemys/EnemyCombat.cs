@@ -38,6 +38,8 @@ public class EnemyCombat : MonoBehaviour
 
     private bool spinAttack;
 
+    EnemySFX enemySFX;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -45,6 +47,7 @@ public class EnemyCombat : MonoBehaviour
         enemyMove = GetComponent<EnemyMove>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        enemySFX = GetComponent<EnemySFX>();
     }
 
     // Update is called once per frame
@@ -71,6 +74,7 @@ public class EnemyCombat : MonoBehaviour
         //_moveSfx.enabled = false;
         agent.SetDestination(transform.position);
         anim.SetFloat("isMoving", 0f);
+        enemySFX.PlaySFX("stomMove");
         transform.LookAt(enemyMove.player);
 
         if (!alreadyAttacked)
@@ -80,13 +84,10 @@ public class EnemyCombat : MonoBehaviour
             if (Physics.Raycast(ray, out hit, _attackLongRange, _whatIsPlayer))
             {
                 enemyMove.canMove = false;
-                //_sfx.PlayOneShot(_attack2SwordSfx);
-                //_sfx.PlayOneShot(_attack2Sfx);
+             
                 anim.SetTrigger("Attack2");
-
-                //Invoke(nameof(ShowWeapon), 0.4f);
-                ///Calculamos la disntacia para la fuerza de la espada
-               // sfx.PlayOneShot(attack2StoneSfx);
+                enemySFX.PlaySFX("roar2");
+ 
                 Invoke(nameof(SwordThrowerCall), 0.5f);
                 Invoke(nameof(toggleCanmove), 1f);
                 alreadyAttacked = true;
@@ -113,6 +114,7 @@ public class EnemyCombat : MonoBehaviour
         //_moveSfx.enabled = false;
         agent.SetDestination(transform.position);
         anim.SetFloat("isMoving", 0f);
+        enemySFX.PlaySFX("stomMove");
 
         if (!alreadyAttacked)
         {
@@ -125,8 +127,10 @@ public class EnemyCombat : MonoBehaviour
             if(UnityEngine.Random.Range(0,100)>90){
                 enemyMove.canMove = false;
                 _weaponCollider.enabled = true;
-                //_sfx.PlayOneShot(_attackSfx);
+                //_sfx.PlayOneShot(_attackSfx);                
                 anim.SetTrigger("SpinAttack");
+                enemySFX.PlaySFX("attack2");
+            
                 alreadyAttacked = true;
                 spinAttack=true;
                 Invoke(nameof(ResetAttack), _timeBetweenAttacks+2f);
@@ -138,9 +142,8 @@ public class EnemyCombat : MonoBehaviour
 
                 enemyMove.canMove = false;
                 _weaponCollider.enabled = true;
-                //_sfx.PlayOneShot(_attackSfx);
                 anim.SetTrigger("Attack1");
-
+                enemySFX.PlaySFX("attack1");
                 alreadyAttacked = true;
                 Invoke(nameof(ResetAttack), _timeBetweenAttacks);
                 Invoke(nameof(toggleCanmove), 1f);
@@ -149,10 +152,11 @@ public class EnemyCombat : MonoBehaviour
             //Ray ray = new Ray(transform.position, transform.forward);
             
 
-
         }
 
     }
+
+
 
     bool IsFron()
     {
