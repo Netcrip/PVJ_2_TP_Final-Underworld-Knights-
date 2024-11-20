@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TrapDamageTime : MonoBehaviour
 {
-    public float damage = 10f; // Daño por golpe al jugador
-    private float delay;
-    [SerializeField] private float delayCD = 5f;
+    public float damage = 10f; // Daï¿½o por golpe al jugador
+    //private float delay;
+    //[SerializeField] private float delayCD = 5f;
 
 
     //private void OnTriggerEnter(Collider other)
@@ -23,13 +23,13 @@ public class TrapDamageTime : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        // Comprueba si el objeto con el que colisionó tiene un componente PlayerHealth
+        // Comprueba si el objeto con el que colisionï¿½ tiene un componente PlayerHealth
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
 
         //delay += Time.deltaTime;
         //if (delay > delayCD)
         //{
-            // Llamado al metodo que aplica el daño
+            // Llamado al metodo que aplica el daï¿½o
             ApllyDamage(playerHealth);
 
             // Reseta el delay

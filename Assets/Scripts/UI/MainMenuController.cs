@@ -15,7 +15,14 @@ public class MainMenuController : MonoBehaviour
         if(SceneManager.GetSceneByName("MainMenu").isLoaded)
             GameManager.Instance.UnloadSceneAdition("Creditos");
         else
-            GameManager.Instance.LoadScene("MainMenu",false);
+        {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
+        }
+            
     }
     public void ReturnLevel()
     {

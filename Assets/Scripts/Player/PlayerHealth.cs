@@ -50,7 +50,8 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     // Update is called once per frame
     public void Damage(float damageAmount) { 
-        GetHit(damageAmount);
+        if(playerAlive)
+            GetHit(damageAmount);
     }
 
     private void GetHit(float damageAmount)

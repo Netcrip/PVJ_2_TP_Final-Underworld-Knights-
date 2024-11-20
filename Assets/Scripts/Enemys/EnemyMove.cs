@@ -32,7 +32,6 @@ public class EnemyMove : MonoBehaviour
     public bool stuned{set;get;}
 
 
-    [SerializeField] private AudioSource _moveSfx = null;
 
     EnemySFX enemySFX;
 
@@ -76,14 +75,14 @@ public class EnemyMove : MonoBehaviour
     }
     private void goToRespawn()
     {
-        //_moveSfx.enabled = true;
+        
         agent.SetDestination(respawPoint);
         anim.SetFloat("isMoving", 0.5f);
         enemySFX.PlaySFX("move");
     }
      private void ChasePlayer()
     {
-        //_moveSfx.enabled = true;
+        
         agent.SetDestination(player.position);
         anim.SetFloat("isMoving", 0.5f);
         enemySFX.PlaySFX("move");

@@ -8,7 +8,7 @@ public class AvatarSelection : MonoBehaviour
     [SerializeField] AudioSource _audio;
     [SerializeField] AudioClip _SelectionClip;
     [SerializeField] AudioClip _avatarSelectionClip;
-    private bool KnightB = true;
+    //private bool KnightB = true;
     [SerializeField] GameObject spotA,spotB,spotC,spotD,spotE;
     [SerializeField] GameObject knightA,knightB,knightC,knightD,knightE;
 
