@@ -10223,7 +10223,7 @@ GameObject:
   - component: {fileID: 1045366436}
   - component: {fileID: 1045366435}
   m_Layer: 0
-  m_Name: BgMusic
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10239,9 +10239,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1795024005825335018, guid: fb34d456078f38a44826791bca6241ee, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4cdc34bf042b63d4999d69e26efb89a5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0cd2a36004c6d9d4895fcf65cef3dc17, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
