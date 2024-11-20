@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="752cecd6-acf5-45b7-8e34-092070140a15" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Variante 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Variante 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PVJ_2_TP_Final-Underworld-Knights-/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PVJ_2_TP_Final-Underworld-Knights-/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/EPICENTRUM SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/EPICENTRUM SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/InventoryCanvas VIEJO.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/InventoryCanvas VIEJO.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/InventoryManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/Item.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/Item.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Audio.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Audio.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Defeat.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Defeat.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Defeat.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Defeat.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ESCMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ESCMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenuController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +110,8 @@
       <updated>1731978038819</updated>
       <workItem from="1731978041251" duration="1026000" />
       <workItem from="1732021051034" duration="8904000" />
+      <workItem from="1732069133668" duration="2549000" />
+      <workItem from="1732074191387" duration="266000" />
     </task>
     <servers />
   </component>

@@ -10,13 +10,11 @@ public class InventoryManager : MonoBehaviour
     private bool menuActivated;
     public ItemSlot[] itemSlot;
     private PlayerHealth _playerHealth;
-
     
     public GameObject miniInventoryPanel; // Panel del mini inventario que contendrá los 3 slots
     public ItemSlot miniSlotSmallPotion;
     public ItemSlot miniSlotMidPotion;
     public ItemSlot miniSlotBigPotion;
-    
     
     private void Awake()
     {
@@ -29,12 +27,6 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    private void Start()
-    {
-        // _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -55,7 +47,6 @@ public class InventoryManager : MonoBehaviour
             if (itemSlot[i].IsMatch(itemName, itemDescription, healAmount, uniqueID))
             {
                 itemSlot[i].AddQuantity(quantity);
-                Debug.Log("Cantidad actualizada: " + itemSlot[i].quantity + " de " + itemName);
                 return;
             }
         }
@@ -102,7 +93,6 @@ public class InventoryManager : MonoBehaviour
             UsePotionByID("big_pot_30");
         }
     }
-
     private void UsePotionByID(string potionID)
     {
         foreach (ItemSlot slot in itemSlot)
@@ -119,8 +109,6 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-    
-    
     private void UpdateMiniInventory()
     {
         UpdateMiniSlot(miniSlotSmallPotion, "small_pot_10");
@@ -144,7 +132,6 @@ public class InventoryManager : MonoBehaviour
                 return;
             }
         }
-
         // LIMPIA EL LUGAR
         slot.itemName = "";
         slot.itemSprite = slot.emptySprite;
@@ -153,7 +140,4 @@ public class InventoryManager : MonoBehaviour
         slot.itemImage.sprite = slot.emptySprite;
         slot.UpdateQuantityText();
     }
-    
-    
-    
 }
