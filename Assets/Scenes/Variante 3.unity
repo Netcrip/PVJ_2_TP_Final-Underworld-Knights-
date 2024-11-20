@@ -9137,7 +9137,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 132929380795853160, guid: 211f25fc5db4e13468cdc62b33efece5, type: 3}
+      propertyPath: scene
+      value: BossFight
+      objectReference: {fileID: 0}
     - target: {fileID: 523480325527853447, guid: 211f25fc5db4e13468cdc62b33efece5, type: 3}
+      propertyPath: scene
+      value: BossFight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554149698712513503, guid: 211f25fc5db4e13468cdc62b33efece5, type: 3}
       propertyPath: scene
       value: BossFight
       objectReference: {fileID: 0}
@@ -9180,6 +9188,10 @@ PrefabInstance:
     - target: {fileID: 6596069053496084202, guid: 211f25fc5db4e13468cdc62b33efece5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614395626148324795, guid: 211f25fc5db4e13468cdc62b33efece5, type: 3}
+      propertyPath: scene
+      value: BossFight
       objectReference: {fileID: 0}
     - target: {fileID: 8124765171788925481, guid: 211f25fc5db4e13468cdc62b33efece5, type: 3}
       propertyPath: m_Name

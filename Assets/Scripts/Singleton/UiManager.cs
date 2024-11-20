@@ -57,7 +57,13 @@ public class UiManager : MonoBehaviour
             }
         }
         else
-            staminaWheel.gameObject.SetActive(true);
+            try {
+                staminaWheel.gameObject.SetActive(true);
+              }
+            catch
+            {
+                //Jugador Muerto
+            }
     }
 
     public void PlayerStamina(PlayerStamina stamina)

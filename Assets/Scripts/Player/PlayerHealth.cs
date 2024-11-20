@@ -18,6 +18,9 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     public Action onUnsuscribe;
     public Action<float, float> onHealthchange;
 
+    private float delayAnimDamage;
+    private float delayAD=0.6f;
+
     PlayerSFX playerSFX;
     void Awake()
     {
@@ -39,6 +42,10 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     }
 
+    private void Update() {
+        delayAnimDamage+=Time.deltaTime;
+    }
+
     // Update is called once per frame
     public void Damage(float damageAmount) { 
         GetHit(damageAmount);
@@ -48,15 +55,21 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     {   
         if (combat.Defence)
         {
-            anim.SetTrigger("Defence");
-            playerSFX.PlaySFX("defence");
+            if(delayAnimDamage>delayAD){
+                anim.SetTrigger("Defence");
+                playerSFX.PlaySFX("defence");
+                delayAnimDamage=Time.deltaTime;
+            }
             health -= (damageAmount/2);
             onHealthchange?.Invoke(health,_maxHealth);
         }
         else
         {
-            anim.SetTrigger("Damage");
-            playerSFX.PlaySFX("hit");
+            if(delayAnimDamage>delayAD){
+                anim.SetTrigger("Damage");
+                playerSFX.PlaySFX("hit");
+                delayAnimDamage=Time.deltaTime;
+            }
             health -= damageAmount;
             onHealthchange?.Invoke(health, _maxHealth);
         }

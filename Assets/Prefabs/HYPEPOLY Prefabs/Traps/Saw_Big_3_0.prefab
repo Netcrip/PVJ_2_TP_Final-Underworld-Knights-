@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 6910616687070579331}
   - component: {fileID: 6753405533867231900}
   - component: {fileID: 5581524098629510166}
-  - component: {fileID: 6567943512092287201}
+  - component: {fileID: 3592952681957955058}
   m_Layer: 0
   m_Name: Saw.002
   m_TagString: Untagged
@@ -310,7 +310,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1028022196212891806, guid: 7f48638c4996b254d845545e25da8c2b, type: 3}
---- !u!114 &6567943512092287201
+--- !u!114 &3592952681957955058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,10 +319,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4587278694635138737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06904beb6506ebe4e917726987f81f7b, type: 3}
+  m_Script: {fileID: 11500000, guid: e2989893c65404e4faf2d6e9cc89f807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  delayCD: 5
 --- !u!1 &7095450038175406800
 GameObject:
   m_ObjectHideFlags: 0
