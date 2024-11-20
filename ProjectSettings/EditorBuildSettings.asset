@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Audio.unity
     guid: ca0ee2366de9f2a42a6450ad981eceb9
+  - enabled: 1
+    path: Assets/Scenes/ESCMenu.unity
+    guid: d879f9a345fec32489e1e4db1e6d8b48
   m_configObjects: {}

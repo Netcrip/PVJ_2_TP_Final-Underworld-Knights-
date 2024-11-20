@@ -634,6 +634,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 118130, guid: f8c8d905a2a74f14aae196f66d66e786, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1232255529}
+    - targetCorrespondingSourceObject: {fileID: 118130, guid: f8c8d905a2a74f14aae196f66d66e786, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1232255534}
   m_SourcePrefab: {fileID: 100100000, guid: f8c8d905a2a74f14aae196f66d66e786, type: 3}
 --- !u!1 &1232255521 stripped
 GameObject:
@@ -657,11 +660,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5498211ab978a4baeb2c2dfb485b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 10
-  jumpSpeed: 4
-  MaxSpeed: 10
+  moveDirection: {x: 0, y: 0, z: 0}
+  _gravity: 10
+  _jumpSpeed: 4
+  _maxSpeed: 10
+  _dashStamina: 10
   rotationSpeed: 0.8
-  currentRotation: {x: 0, y: 0, z: 0, w: 0}
+  currentRotation: {x: 0, y: 0, z: 0}
 --- !u!143 &1232255530
 CharacterController:
   m_ObjectHideFlags: 0
@@ -700,6 +705,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1c4f38d5f851e40ad00b1c797bb74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  shield: {fileID: 0}
+  delayToAttack: 0.7
+  delayToAttackShield: 4
 --- !u!95 &1232255532
 Animator:
   serializedVersion: 5
@@ -733,6 +742,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256f2ca58e816f24b80220bce60e7513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1232255534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232255521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b589831864943246bc6e93478e7bf72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxStamina: 0
+  _staminaRegeneration: 0
+  stamina: 0
 --- !u!1 &1468992801
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,6 +805,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

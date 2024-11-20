@@ -39,16 +39,31 @@ public class AudioManager : MonoBehaviour
     }
     private void SetVolum()
     {
-        Debug.Log(" datos a:" + volumeData.master + " m " + volumeData.music + " s " + volumeData.sfx);
         audioMixer.SetFloat("Master",Mathf.Log10(volumeData.master)*20);
         audioMixer.SetFloat("Music", Mathf.Log10(volumeData.music) * 20);
         audioMixer.SetFloat("SFX", Mathf.Log10(volumeData.sfx) * 20);
+        audioMixer.SetFloat("System", Mathf.Log10(0.001f) * 20);
     }
     public void ChangeAudio(VolumeData volumeData)
     {
         this.volumeData = volumeData;
         SaveVolume();
         SetVolum();
+    }
+
+    public void AudioOff(){
+        audioMixer.SetFloat("Music", Mathf.Log10(0.001f) * 20);
+        audioMixer.SetFloat("SFX", Mathf.Log10(0.001f) * 20);
+        audioMixer.SetFloat("System", Mathf.Log10(1f) * 20);
+
+    }
+    public void SetAudioSystem(float vol){
+        audioMixer.SetFloat("System", Mathf.Log10(vol) * 20);
+    }
+    public void AudioOn(){
+        audioMixer.SetFloat("SFX", Mathf.Log10(volumeData.sfx) * 20);
+        audioMixer.SetFloat("Music", Mathf.Log10(volumeData.music) * 20);
+        audioMixer.SetFloat("System", Mathf.Log10(0.001f) * 20);
     }
 
 }

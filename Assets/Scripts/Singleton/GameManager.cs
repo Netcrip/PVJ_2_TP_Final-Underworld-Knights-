@@ -28,10 +28,14 @@ public class GameManager : MonoBehaviour
         }
         SceneManager.LoadScene(scene);
     }
-    public void LoadSceneAdition(string scene){
-        SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+    public void LoadSceneAdition(string scene){       
+        
+        if (!SceneManager.GetSceneByName(scene).isLoaded && !SceneManager.GetSceneByName("Audio").isLoaded)
+        {
+            SceneManager.LoadScene(scene, LoadSceneMode.Additive);
 
-        Time.timeScale = 0f;
+            Time.timeScale = 0f;
+        }
     }
     public void UnloadSceneAdition(string scene)
     {
