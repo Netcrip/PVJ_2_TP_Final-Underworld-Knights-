@@ -3342,7 +3342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093733f7f84e69c419e9581bb2a64784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 600
+  _maxHealth: 500
   _stunDuration: 5
   Lightings: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   LightingsTransform: {fileID: 5064788075219658104}
