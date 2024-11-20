@@ -243,12 +243,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   quantity: 0
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: b9d57a4161b87ac43844cd039a58475f, type: 3}
   isFull: 0
   itemDescription: 
   healAmount: 0
   uniqueID: 
-  emptySprite: {fileID: 21300000, guid: 46223ba009268c94c935ed31f5c3fae5, type: 3}
+  emptySprite: {fileID: 21300000, guid: b9d57a4161b87ac43844cd039a58475f, type: 3}
   maxNumberOfItems: 9
   quantityText: {fileID: 8728808788923398213}
   itemImage: {fileID: 4766313138316723119}
