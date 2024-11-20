@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5073796460741c4984120335ffe3659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSFX: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
+  _audioSFX: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
   _audioMusic: {fileID: 8300000, guid: d98a14a93d1680445a0d23d77a3dc289, type: 3}
   _audioMaster: {fileID: 8300000, guid: cdf36a7412b98a147921f89e52d5a831, type: 3}
   _master: {fileID: 300571991}
