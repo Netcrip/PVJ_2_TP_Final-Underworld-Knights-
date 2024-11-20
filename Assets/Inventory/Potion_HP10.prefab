@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 92.93866, y: 2.8743947, z: 200.7923}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.45, y: 1.45, z: 1.45}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3084512413423913696}
   m_Father: {fileID: 0}
@@ -72,8 +72,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6, y: 0.6, z: 0.6}
-  m_Center: {x: -0.4, y: 1.1, z: 0}
+  m_Size: {x: 0.5124112, y: 0.63351816, z: 0.44510394}
+  m_Center: {x: -0.37201452, y: 0.3972469, z: 0.0008575669}
 --- !u!54 &128753608750133930
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -113,13 +113,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle_Health
       objectReference: {fileID: 0}
+    - target: {fileID: 4000010533823780, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.688
+      objectReference: {fileID: 0}
     - target: {fileID: 4000010690109084, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.37
       objectReference: {fileID: 0}
     - target: {fileID: 4000010690109084, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.703
       objectReference: {fileID: 0}
     - target: {fileID: 4000010690109084, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
       propertyPath: m_LocalPosition.z

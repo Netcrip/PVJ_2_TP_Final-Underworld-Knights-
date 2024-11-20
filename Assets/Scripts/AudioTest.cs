@@ -22,6 +22,7 @@ public class AudioTest : MonoBehaviour
     
     private void Start() {
         StopAudio();
+        selectedSlice=null;
     }
     public void TestAudio(string seleceted){
         if(selectedSlice==seleceted){
@@ -54,7 +55,7 @@ public class AudioTest : MonoBehaviour
                 selectedSlice=seleceted;
             AudioManager.Instance.SetAudioSystem(_music.value);
             break;
-            case "SFX":    
+            case "SFX":  
                 StopAudio();     
                 _audio.clip=_audioSFX;
                 _audio.Play();   
