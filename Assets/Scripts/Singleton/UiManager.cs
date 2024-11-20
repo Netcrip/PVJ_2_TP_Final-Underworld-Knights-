@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,7 +32,15 @@ public class UiManager : MonoBehaviour
     }
     private void Update()
     {
-        HideStaminaBar();
+      
+        
+        try{
+            HideStaminaBar();
+        }
+        catch
+        {
+                //Jugador Muerto estamina cd
+        }
     }
     private void HideStaminaBar()
     {
@@ -53,7 +62,7 @@ public class UiManager : MonoBehaviour
                 }
             catch
             {
-                //Jugador Muerto
+                //Jugador Muerto estamina cd
             }
         }
         else
@@ -62,7 +71,7 @@ public class UiManager : MonoBehaviour
               }
             catch
             {
-                //Jugador Muerto
+                //Jugador Muerto estamina cd
             }
     }
 

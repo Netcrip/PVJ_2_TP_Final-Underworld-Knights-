@@ -32,6 +32,7 @@ using UnityEngine;
 
         [SerializeField]private float delayToAttack=0.7f;
         [SerializeField]private float delayToAttackShield=4f;
+        PlayerHealth playerHealth;
 
         PlayerSFX playerSFX;
         private void Awake()
@@ -49,29 +50,34 @@ using UnityEngine;
             weapon.enabled=false;
             shield.enabled=false;
             playerSFX = GetComponent<PlayerSFX>();
+            playerHealth= GetComponent<PlayerHealth>();
         }
 
         private void Update()
         {
-           delayAttack+=Time.deltaTime;
-           delayAttackSheild+=Time.deltaTime;
+            if(playerHealth.playerAlive)
+            {
+                delayAttack+=Time.deltaTime;
+                delayAttackSheild+=Time.deltaTime;
            
-             Block(playerInput.Block);
+                Block(playerInput.Block);
             
-             if(playerInput.AttackInput && delayAttack>=delayToAttack)// !AttackInProgress)
-            {
-                Attack();
-                
-                delayAttack=Time.deltaTime;
-            }
-            else if (playerInput.SpecialAttackInput && delayAttackSheild>=delayToAttackShield)//!AttackInProgress)
-            {
-                if(playerStamina.StaminaUse(25f,false)){
-                    SpecialAttack();                   
-                    delayAttackSheild=Time.deltaTime;
-                }
+                if(playerInput.AttackInput && delayAttack>=delayToAttack)// !AttackInProgress)
+                {
+                    Attack();
                     
+                    delayAttack=Time.deltaTime;
+                }
+                else if (playerInput.SpecialAttackInput && delayAttackSheild>=delayToAttackShield)//!AttackInProgress)
+                {
+                    if(playerStamina.StaminaUse(25f,false)){
+                        SpecialAttack();                   
+                        delayAttackSheild=Time.deltaTime;
+                    }
+                        
+                }
             }
+           
         }
 
         private void SetAttackStart()

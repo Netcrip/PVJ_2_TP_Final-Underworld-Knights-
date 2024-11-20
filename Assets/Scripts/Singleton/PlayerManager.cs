@@ -69,6 +69,10 @@ public class PlayerManager : MonoBehaviour
         healthInstance.onDead -= OnPlayerDead;
         healthInstance.onUnsuscribe -= DoOnUnsuscribe;
         playerHealth=levelHealth;
+        Invoke(nameof(Load),3f);
+    }
+
+    private void Load(){
         GameManager.Instance.LoadScene("Defeat",false);
     }
 

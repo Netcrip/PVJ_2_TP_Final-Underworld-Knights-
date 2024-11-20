@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     // 
     [SerializeField]float health;
     [SerializeField] float _maxHealth=100;
+
+    public bool playerAlive  {get;private set;} = true;
     private Combat combat;
     private PlayerInput playerInput;
     private Animator anim;
@@ -77,13 +79,13 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
         if(health <= 0)
         {
-            onDead?.Invoke();
+            playerAlive=false;
             anim.SetTrigger("Die");
             playerSFX.PlaySFX("die");
             health = 0;
+            onDead?.Invoke();
         }
     }
-
     public void Heal(float healAmount)
     {         
         if (health + healAmount <= _maxHealth)

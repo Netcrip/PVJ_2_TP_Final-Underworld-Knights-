@@ -65,11 +65,11 @@ public class EnemyHealth : MonoBehaviour, IDamagable
         {
             anim.SetBool("Die", true);
             isAlive = false;
-            onDead?.Invoke();
+            
 
             enemySFX.PlaySFX("die");
 
-            Invoke(nameof(DestroyEnemy), 4f);
+            Invoke(nameof(DestroyEnemy), 3f);
         }
     }
      public void StunOn(){
@@ -87,6 +87,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
     private void DestroyEnemy()
     {
         Destroy(gameObject);
+        onDead?.Invoke();
     }
 
 }

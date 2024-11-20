@@ -30,6 +30,8 @@ using UnityEngine;
   
         [SerializeField] private Vector3 currentRotation;
 
+        PlayerHealth playerHealth;
+
         
         PlayerSFX playerSFX;
         Vector3 move;
@@ -44,30 +46,35 @@ using UnityEngine;
             _playerStamina = GetComponent<PlayerStamina>();
             speed = _maxSpeed;
             playerSFX = GetComponent<PlayerSFX>();
+            playerHealth=GetComponent<PlayerHealth>();
 
         }
 
         private void Update()
         {
-            if (_animator == null) return;
-
-            RotateWithMouse();
-
-            if (_combat.AttackInProgress)
+            if(playerHealth.playerAlive)
             {
-                StopMovementOnAttack();
-            }
-            else
-            {
-                if (_combat.CanMove)
+                if (_animator == null) return;
+
+                    RotateWithMouse();
+
+                if (_combat.AttackInProgress)
                 {
-                    Dash();
-                    Move();
+                    StopMovementOnAttack();
                 }
                 else
-                 playerSFX.PlaySFX("stomMove");
+                {
+                    if (_combat.CanMove)
+                        {
+                            Dash();
+                            Move();
+                        }
+                    else
+                        playerSFX.PlaySFX("stomMove");
 
-        }
+                }   
+            }
+            
         }
 
      
