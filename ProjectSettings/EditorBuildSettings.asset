@@ -27,6 +27,21 @@ EditorBuildSettings:
     path: Assets/Scenes/BossFight.unity
     guid: 323c98f6a2692ec4cb17ebd8d9c4543d
   - enabled: 1
+    path: Assets/Scenes/ESCMenu.unity
+    guid: d879f9a345fec32489e1e4db1e6d8b48
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: a7153620ee6b8354aaf1a919d67c1564
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 49adac7a70bb4ee4bb8080ddb168e3c3
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: a98ff6d6a3a6172449ad16fd7364e029
+  - enabled: 1
+    path: Assets/Scenes/Defeat.unity
+    guid: 34c6353944e8a7646b6fbffa3944e4d7
+  - enabled: 1
     path: Assets/Scenes/Audio.unity
     guid: ca0ee2366de9f2a42a6450ad981eceb9
   - enabled: 1
