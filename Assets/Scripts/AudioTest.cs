@@ -18,14 +18,12 @@ public class AudioTest : MonoBehaviour
 
     // Update is called once per frame
     private string selectedSlice;
-    private float cd=3f;
-    private float time;
+
     
     private void Start() {
         StopAudio();
     }
     public void TestAudio(string seleceted){
-        time=Time.deltaTime;
         if(selectedSlice==seleceted){
             switch(seleceted){
             case "Master":
@@ -42,6 +40,7 @@ public class AudioTest : MonoBehaviour
         else{
             switch(seleceted){
             case "Master":
+                Debug.Log("Entro");
                 StopAudio(); 
                 _audio.clip=_audioMaster;  
                 _audio.Play();      
