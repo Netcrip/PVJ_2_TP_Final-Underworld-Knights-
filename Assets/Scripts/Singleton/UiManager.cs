@@ -48,7 +48,13 @@ public class UiManager : MonoBehaviour
             
         if (staminaBarCD >staminaBarShow)
         {
-            staminaWheel.gameObject.SetActive(false);
+            try {
+                staminaWheel.gameObject.SetActive(false);
+                }
+            catch
+            {
+                //Jugador Muerto
+            }
         }
         else
             staminaWheel.gameObject.SetActive(true);

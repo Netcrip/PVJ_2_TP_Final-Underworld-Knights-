@@ -1,16 +1,17 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     public static GameManager Instance {get; private set;}
 
     public EnemyHealth HealthInstance => healthInstance;
     private EnemyHealth healthInstance;
     public string lastLevel {get; private set;}
    
-    //public Vector2 _dungeonSize {get; private set;}
+    
     public Vector3 respawn{get;private set;}
     private void Awake(){
         if(Instance != null && Instance!= this){
@@ -22,9 +23,10 @@ public class GameManager : MonoBehaviour
         }
     } 
 
-    public void LoadScene(string scene, bool level=true){
+    public void LoadScene(string scene, bool level){
         if(level){
             lastLevel=scene;
+
         }
         SceneManager.LoadScene(scene);
     }
@@ -56,6 +58,6 @@ public class GameManager : MonoBehaviour
 
     private void DoOnDeadBoss(){
         healthInstance.onDead-= DoOnDeadBoss;
-        LoadScene("Victory");
+        LoadScene("Victory",false);
     }
 }

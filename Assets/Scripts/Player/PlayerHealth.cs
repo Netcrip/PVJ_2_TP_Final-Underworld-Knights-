@@ -38,10 +38,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         playerSFX =GetComponent<PlayerSFX>();
 
     }
-    private void Update()
-    {
-        Prueba();
-    }
+
     // Update is called once per frame
     public void Damage(float damageAmount) { 
         GetHit(damageAmount);
@@ -65,7 +62,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         }
             
 
-        if(health < 0)
+        if(health <= 0)
         {
             onDead?.Invoke();
             anim.SetTrigger("Die");
@@ -91,19 +88,5 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         onUnsuscribe?.Invoke();
     }
 
-    private void Prueba()
-    {
-       
-        if (playerInput.Damage)
-        {
-            Debug.Log("Damage");
-            GetHit(15);
-        }
-        if (playerInput.Heal)
-        {
-            Debug.Log("Heal");
-            Heal(10);
-            
-        }
-    }
+
 }

@@ -2215,8 +2215,12 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 246919920107808213, guid: 1c487a00339c5c449a69a41947812c78, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1707
+      objectReference: {fileID: 0}
+    - target: {fileID: 246919920107808213, guid: 1c487a00339c5c449a69a41947812c78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.130015
+      value: 13.13
       objectReference: {fileID: 0}
     - target: {fileID: 246919920107808213, guid: 1c487a00339c5c449a69a41947812c78, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2224,7 +2228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 246919920107808213, guid: 1c487a00339c5c449a69a41947812c78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 137.5417
+      value: 138.34
       objectReference: {fileID: 0}
     - target: {fileID: 246919920107808213, guid: 1c487a00339c5c449a69a41947812c78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4098,6 +4102,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4242893310484601368, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
+      propertyPath: m_Size.y
+      value: 2.412176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242893310484601368, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
+      propertyPath: m_Center.y
+      value: 0.20290142
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242893310484601368, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
+      propertyPath: m_Center.z
+      value: -0.00000023841858
+      objectReference: {fileID: 0}
     - target: {fileID: 4784356929726136275, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
       propertyPath: _startDelay
       value: 2
@@ -5896,7 +5912,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7971,6 +7987,18 @@ PrefabInstance:
     - target: {fileID: 350171770745803267, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242893310484601368, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
+      propertyPath: m_Size.y
+      value: 2.3442855
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242893310484601368, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
+      propertyPath: m_Center.y
+      value: 0.23684654
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242893310484601368, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
+      propertyPath: m_Center.z
+      value: 1.0024279e-15
       objectReference: {fileID: 0}
     - target: {fileID: 4784356929726136275, guid: e1b8e191a9970e5409650a562c5770be, type: 3}
       propertyPath: _startDelay

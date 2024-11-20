@@ -11,8 +11,7 @@ using UnityEngine;
         private bool _playerRotate;
         private bool _block;
         private bool _dash;
-        private bool _damage;
-        private bool _heal;
+
 
 
 
@@ -25,8 +24,6 @@ using UnityEngine;
         public bool Block { get => _block;}
 
         public bool Dash { get => _dash; }
-        public bool Damage { get => _damage; }
-        public bool Heal { get => _heal; }
 
 
         private void Update()
@@ -38,8 +35,6 @@ using UnityEngine;
             _playerRotate= Input.GetMouseButton(1);
             _block = Input.GetKey(KeyCode.F);
             _dash = Input.GetKey(KeyCode.LeftShift);
-            _damage = Input.GetKeyDown(KeyCode.L);
-            _heal = Input.GetKeyDown(KeyCode.K);
 
         }
     }

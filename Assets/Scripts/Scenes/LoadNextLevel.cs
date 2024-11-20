@@ -9,7 +9,7 @@ public class LoadNextLevel : MonoBehaviour
       if (other.gameObject.CompareTag("Player"))
     {
         other.GetComponent<PlayerHealth>().Unsuscribe();
-        GameManager.Instance.LoadScene(scene);
+        GameManager.Instance.LoadScene(scene,true);
     }
    }
 }
